@@ -62,3 +62,191 @@ CREATE TABLE place(
     lng TEXT
 );
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-06-07T19:54:18.166000
+CREATE TABLE path(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    lat TEXT,
+    lng TEXT
+);
+success!
+success!
+success!
+timestamp: 2016-06-08T09:41:19.695000
+CREATE TABLE museos(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    descr TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-08T09:41:19.847000
+CREATE TABLE iglesias(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    descr TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-08T09:41:19.984000
+CREATE TABLE otros(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    descr TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-08T09:44:33.220000
+CREATE TABLE esculturas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    descr TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-08T10:08:09.055000
+ALTER TABLE path ADD direccion TEXT;
+success!
+timestamp: 2016-06-08T10:28:31.747000
+CREATE TABLE sendero(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    direccion TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-08T10:45:32.620000
+CREATE TABLE recorrido(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    direccion TEXT,
+    lat DOUBLE,
+    lng DOUBLE,
+    leee DOUBLE
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-06-08T11:09:18.272000
+CREATE TABLE senderoEs(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    direccion TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-08T11:17:04.664000
+CREATE TABLE camino(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    direccion TEXT,
+    lat DOUBLE,
+    lng DOUBLE
+);
+success!
+timestamp: 2016-06-13T12:01:40.123000
+ALTER TABLE camino ADD file CHAR(512);
+success!

@@ -136,9 +136,37 @@ mail.settings.server = settings.email_server
 mail.settings.sender = settings.email_sender
 mail.settings.login = settings.email_login
 
-db.define_table('place',
+db.define_table('esculturas',
             Field('name','text',requires=IS_NOT_EMPTY()),
             Field('descr','text'),
-            Field('lat','text'),
-            Field('lng','text'),
-            migrate='place.table')
+            Field('lat','float'),
+            Field('lng','float'),
+            migrate='esculturas.table')
+
+db.define_table('museos',
+            Field('name','text',requires=IS_NOT_EMPTY()),
+            Field('descr','text'),
+            Field('lat','float'),
+            Field('lng','float'),
+            migrate='museos.table')
+
+db.define_table('iglesias',
+            Field('name','text',requires=IS_NOT_EMPTY()),
+            Field('descr','text'),
+            Field('lat','float'),
+            Field('lng','float'),
+            migrate='iglesias.table'),
+
+db.define_table('otros',
+            Field('name','text',requires=IS_NOT_EMPTY()),
+            Field('descr','text'),
+            Field('lat','float'),
+            Field('lng','float'),
+            migrate='otros.table')
+
+db.define_table('camino',
+            Field('direccion','text'),
+            Field('lat','float'),
+            Field('lng','float'),
+            Field ('file','upload'),
+            migrate='camino.table')

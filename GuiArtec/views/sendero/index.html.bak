@@ -1,0 +1,110 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/GuiArtec/static/css/map.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente Titulo-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic' rel='stylesheet' type='text/css'><!--Fuente Eslogan-->
+  <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'><!--Fuente Nave-->
+  <link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+   
+  <title>AppGuiartec</title>
+</head>
+<body BACKGROUND="/GuiArtec/static/imgs/CountryLeather.jpg">
+     <!--
+     <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                  
+          <span class="navbar-brand glyphicon glyphicon-map-marker " aria-hidden="true"></span>
+          <a class="navbar-brand josefin pequenio" href="index.html">GuiarTec</a>
+          
+          
+          <!--<div class="navbar-brand josefin pequenio"
+          <a href="index.html"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+          <b>GuiarTec</b></a>
+          </div> -->
+           </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!--
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle josefin pequenio" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+    </nav> -->
+   
+  <!-- <nav class="luckiest padding-largo se-naranja">
+        <ul>
+          <a href="#" class="margen-derecho piel">Menú</a>
+          <a href="#" class="margen-derecho piel">Colaboradores</a>
+          <a href="#" class="margen-derecho piel">Acerca de</a>
+
+        </ul>
+  </nav> -->
+   <!--<a href="#" class="piel"><img src="imgs/botons/flechaD-btn.png" border="0" width="200" height="100">hola</a>-->
+   
+   <!--<div class="col-md-12 quitar-float text-center margen-div-bt">
+      <div class="btn-group-vertical">
+        <a href="sendero.html" class="btn btn-object monserrat"><span class="glyphicon glyphicon-road"></span> Sendero - Esculturas</a>
+      </div>
+    </div>-->  
+     <div class="col-md-1">
+      <a href="/GuiArtec/default/index.html"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span></a>
+      <h4 class="josefin pequenio gris"><img src="/GuiArtec/static/imgs/iconoguiarTec.png" width="30" height="32"> GuiarTec</h4>
+    </div>
+    <div class="embed-container centrar">
+        <iframe width="1300" height="900" src="http://127.0.0.1:8000/GuiArtec/mapa/inicio" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+  <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <h2 class="josefin piel">Tu Sendero</h2>
+        </div>
+        <h4 class="open sans piel-claro">El sendero que indica un recorrido por las esculturas mas representativas de la Ciudad de Resistencia.</h4>        
+
+      </div>
+      
+    <div style="margin-top:800px" class="push">
+      <div class="pisar" id="footer">
+          <div class="quitar-float text-center" id=" footer-a"> <!-- estaba container anteriormete pero cambio sino footer era marron-->
+                      <div class="col-md-4">  
+                      <a href="#">¿Quienes Somos?</a>
+                      </div>
+                      <div class="col-md-4">  
+                      <a href="#"> Apps Vinculadas</a>
+                      </div>
+                      <div class="col-md-4"> 
+                          <h5 class="piel-claro"><img src="/GuiArtec/static/imgs/iconoLg.png" width="20" height="45"> LearningGroup ® 2016</h5>
+                      </div>
+       </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<!--ivory-->
+<!--{{=BEAUTIFY(response._vars)}}-->

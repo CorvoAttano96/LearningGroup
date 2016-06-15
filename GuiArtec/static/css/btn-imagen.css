@@ -1,0 +1,31 @@
+
+#web2py-logo b {
+    display: inline-block;
+    margin-top: -1px;
+}
+b, strong {
+    font-weight: bold;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+strong, b {
+    font-weight: bold;
+}
+Inherited from a#web2py-logo.navbar-brand
+#web2py-logo {
+    color: #c6cecc;
+}
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+.navbar-brand {
+    float: left;
+    padding: 20px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 60px;
+}
