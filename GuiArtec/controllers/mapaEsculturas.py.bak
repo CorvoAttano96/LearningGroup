@@ -6,12 +6,12 @@ def inicio():
 
 def esculturasMarkers():
     places = []
-    rows = db(db.scul.id != None).select()
+    rows = db(db.esculturag.id != None).select()
     for row in rows:
         place = {
         'lat': row.lat,
         'lng': row.lng,
-        'title': row.nombre,
+        'title': "Nombre y foto",
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True
         #'infowindow':{'content':"<p>HTML Content</p>"}
@@ -51,7 +51,7 @@ def esculturasMarkers2():
 
 def crearSenderoEsculturas2():
     paths = []
-    rows = db().select(db.scul2.ALL,orderby=db.camino.id)
+    rows = db().select(db.scul2.ALL,orderby=db.scul2.id)
     for row in rows:
         path = {
             'location' : {'lat':row.lat,

@@ -6,12 +6,12 @@ def inicio():
 
 def esculturasMarkers():
     places = []
-    rows = db(db.camino.id != None).select()
+    rows = db(db.esculturag.id != None).select()
     for row in rows:
         place = {
         'lat': row.lat,
         'lng': row.lng,
-        'title': "Nombre y foto",
+        'title': row.nombre,
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True
         #'infowindow':{'content':"<p>HTML Content</p>"}

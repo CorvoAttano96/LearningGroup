@@ -178,3 +178,15 @@ db.define_table('camino',
             Field('lng','float'),
             Field ('file','upload'),
             migrate='camino.table')
+
+db.define_table('esculturag',
+    Field('nombre','text'),
+    Field('fecha','text'),
+    Field('escultor','text'),
+    Field('pais', 'text'),
+    Field('material', 'text'),
+    Field('imagen', 'text'),
+    Field('direccion', 'text'),
+    Field('lat', 'float'),
+    Field('lng', 'float'),
+    Field('premio', 'text'))

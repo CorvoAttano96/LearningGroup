@@ -150,12 +150,12 @@ db.define_table('scul2',
             Field('lng','float'),
             migrate='scul2.table')
 
-db.define_table('scul5',
+db.define_table('scul6',
             Field('nombre','text',requires=IS_NOT_EMPTY()),
             Field('direccion','text'),
             Field('lat','float'),
             Field('lng','float'),
-            migrate='scul5.table')
+            migrate='scul6.table')
 
 
 db.define_table('museums',
@@ -178,3 +178,15 @@ db.define_table('camino',
             Field('lng','float'),
             Field ('file','upload'),
             migrate='camino.table')
+
+db.define_table('esculturaf',
+    Field('nombre','text'),
+    Field('fecha','text'),
+    Field('escultor','text'),
+    Field('pais', 'text'),
+    Field('material', 'text'),
+    Field('imagen', 'text'),
+    Field('direccion', 'text'),
+    Field('lat', 'float'),
+    Field('lng', 'float'),
+    Field('premio', 'text'))
