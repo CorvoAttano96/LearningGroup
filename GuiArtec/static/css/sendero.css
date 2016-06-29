@@ -1,0 +1,121 @@
+body{
+	background-image: url("../imgs/back2.jpg");
+	/*Ajusta mi background a la webpage*/
+	background-size: 100%;
+	color:white;
+	background-repeat:repeat-y;
+	background-position:0 0;
+	/*Me Scrollea la imagen al desplazarze o en su defecto fixed, fijo*/
+	background-attachment:scroll;
+}
+nav{
+	opacity: 0.9;
+}
+.josefin{
+	font-family: 'Josefin Sans', sans-serif;
+}
+.monserrat{
+	font-family: 'Montserrat', sans-serif;
+}
+.lato{
+	font-family: 'Lato', sans-serif;
+}
+
+#conten-contenido{
+	background-color: black;
+	opacity: 0.6;
+	
+}
+#conten-map{
+	background-color: black;
+	opacity: 0.9;	
+}
+.mediano{
+	font-size: 4.5em;
+}
+.chica{
+	font-size: 1.1em;
+}
+.justificar{
+	text-align: justify;
+	text-justify: inter-word;
+}
+.font-blanco{
+	color: white;
+}
+.gris{
+	color:silver;
+}
+
+.padding-conten{
+	margin-top: 25px;
+}
+.ancho{
+	width: 70%;
+}
+.quitar-float{
+	float:none;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100%;
+  border-top: 2px solid #000;
+  
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px;
+
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.no-lista li{
+	margin:0px;
+	padding: 0px;
+}
+.no-lista{
+	list-style-type: none;
+}
+
+.inline-block{
+	float: none;
+	display: inline-block;
+	padding-left:-4px; 
+}
+.padding-nav{
+	padding-right: 5px;
+}
+/*Esta Clase se redujo mas arriba con nav{}*/
+#claridad-nav{
+	background-color:black;
+	opacity: 0.6 
+}
+#claridad-footer{
+	background-color:black;
+	opacity: 0.95;
+}
+a{
+	font-style: italic;
+	color:darkgoldenrod;
+	text-decoration: none;
+}
+
+/* animated (nombre de animacion)*/
+/*-webkit-animation-delay:1s;-moz-animation-delay:1s;animation-delay:1s*/

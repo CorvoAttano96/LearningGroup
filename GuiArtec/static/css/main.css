@@ -1,0 +1,226 @@
+img{
+	max-width:100%; /*Me permite determinar el resize de mi img*/
+	
+}
+a{
+	font-style: italic;
+	color:darkgoldenrod;
+	text-decoration: none;
+}
+body{
+	background-image: url("../imgs/CountryLeather.jpg");
+	/*Ajusta mi background a la webpage*/
+	background-size: 100%;
+	color:white;
+	background-repeat:repeat-y;
+	background-position: 0 0;
+	/*Me Scrollea la imagen al desplazarze o en su defecto fixed, fijo*/
+	background-attachment: scroll;
+	
+}
+#fondo{
+	background-image:url("../imgs/CountryLeather.jpg");/*url("../imgs/fondo2.jpg")"*/
+	background-repeat:no-repeat;
+		
+}
+.espacio-arriba{
+	margin-top:120px;
+}
+.margen-div-bt{
+	margin-top: 50px;
+}
+.margen-top-bt{
+	margin-top: 25px;
+}
+.josefin{
+	font-family: 'Josefin Sans', sans-serif;
+}
+.monserrat{
+	font-family: 'Montserrat', sans-serif;
+}
+.open-sans{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+.luckiest{
+	font-family: 'Luckiest Guy', cursive;
+}
+.grande{
+	font-size: 6em;
+	}
+.mediano{
+	font-size: 2em;
+}
+.pequenio{
+	font-size: 1.5em;
+}
+
+.quitar-float{
+	float: none;  /*Me ubica dentro de los Layout de bootstrap*/
+}
+.margen-derecho{
+	margin-right: 2em;
+}
+
+}
+.inline-block{
+	float:none;
+	display: inline-block;
+	margin-right:-4px;	
+}
+.anda-arriba{
+	margin-top: 0px;  /*vertical-align sirve unicamente cuando esta definido en nuestra class en HTML inline-block*/
+}
+
+.padding-largo{
+	padding: 12px 23px;
+}
+
+.se-naranja{
+	background-color: #C46D3B;
+}
+.piel{
+	color:#E3CBAC ;
+}
+.negro{
+	color:000000;
+}
+.gris{
+	color:#60677A
+}
+.piel-claro{
+	color: #EFECD4;
+}
+.no-lista li{
+	list-style-type:none;
+}
+.no-lista{
+	margin:0;
+	padding: 0;
+}	
+
+.verde{
+	color:#86FF25;
+}	
+
+
+.btn-default {
+    color:#1A1917;
+    background-color:#E5D7C6;
+    /*background-color:#E3CBAC;*/
+    border-color: #E1C8A7;
+    padding: 10px 30px 5px 30px;
+    font-size: 18px; 
+    font-weight: bold; 
+}    
+.btn-default2 {
+    color:#1A1917;
+    background-color:#E1C8A7;
+    /*opacity: 0.6;*/
+    border-color: #E4B577;
+    padding: 10px 30px 5px 30px;
+    font-size: 18px; 
+    font-weight: bold; 
+}    
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+
+a:link, a:visited{  			
+text-decoration:none;  /* quita el subrayado el enlace ej: de la navbar*/ 
+} 
+nav.navbar {
+    background-color: #E3CBAC;
+}
+.btn-object{
+	background-image: url('../imgs/flechaD-btn.png');
+	background-repeat:no-repeat;
+	height:50px;
+	width:100px;
+	background-position:center;
+}
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -60px;
+}
+#push, #footer {
+background-color: #120700;
+}
+#footer {
+    height: 65px;
+} 
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+#footer {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+width: auto;
+max-width: 680px;
+background-color:rgba(82, 32, 0, 0.5); /*el ultimo parametro es de opacidad*/
+}
+.container .credit {
+margin: 20px 0;
+}
+
+.pisar{						/*trato de pisar el style de bootstrap por defecto*/
+	font-size: 14px;
+    line-height: 4;
+    color: #333;
+    margin-left: 0px;
+  	margin-right: 0px;
+}
+nav{
+display:none;}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  border-top: 2px solid #000;
+  
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px;
+
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+.padding-nav{
+	padding-right: 5px;
+}
+#claridad-nav{
+	background-color:black;
+	opacity: 0.6 
+}
+#claridad-footer{
+	background-color:black;
+	opacity: 0.95;
+}

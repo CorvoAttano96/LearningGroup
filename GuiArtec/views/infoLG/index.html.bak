@@ -1,0 +1,3 @@
+{{extend 'layout.html'}}
+<h1>Aca va la informacion sobre Learning Group</h1>
+{{=BEAUTIFY(response._vars)}}

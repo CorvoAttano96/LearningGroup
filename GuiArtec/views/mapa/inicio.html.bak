@@ -1,0 +1,376 @@
+{{extend 'layoutC.html'}}
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/GuiArtec/static/css/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente Titulo-->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic' rel='stylesheet' type='text/css'><!--Fuente Eslogan-->
+	<link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'><!--Fuente Nave-->
+	<link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<title>AppGuiartec</title>
+</head>
+<body>
+	<!--<nav class="navbar navbar-default">
+      <div class="container-fluid">-->
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <!--<div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <span class="navbar-brand glyphicon glyphicon-map-marker " aria-hidden="true"></span>
+          <a class="navbar-brand josefin pequenio" href="/GuiArtec/default/index.html">GuiarTec</a>
+
+          -->
+          <!--<div class="navbar-brand josefin pequenio">
+          <a href="index.html"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+          <b>GuiarTec</b></a>
+          </div>-->
+
+        <!--  
+        </div>
+
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle josefin pequenio" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>-->
+	<!-- <nav class="luckiest padding-largo se-naranja">
+				<ul>
+					<a href="#" class="margen-derecho piel">Menú</a>
+					<a href="#" class="margen-derecho piel">Colaboradores</a>
+					<a href="#" class="margen-derecho piel">Acerca de</a>
+
+				</ul>
+	</nav> -->
+
+	<!--<div class="col-md-12 quitar-float text-center margen-div-bt">	
+		    <ul class="no-lista">
+	            <li><a href="/GuiArtec/mapa/index.html" class="btn btn-default btn-lg azul bongaloo">Sendero - Esculturas</a></li>
+	            <li class="margen-top-bt"><a href="#" class="btn btn-default btn-lg azul bongaloo">Búsqueda</a></li>
+	            <li class="margen-top-bt"><a href="#" class="btn btn-default btn-lg azul bongaloo">Punto de Interes</a></li>
+	        </ul>
+	</div>-->
+
+        <!--<button type="button" class="btn btn-default bt-lg" href="#">Apple</button>
+        <br><button type="button" class="btn btn-default bt-lg">Samsung</button></br>
+        <button type="button" class="btn btn-default bt-lg">Sony</button>-->
+
+        <!--ivory-->
+<!--{{=BEAUTIFY(response._vars)}}-->
+
+<div class="">
+  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="{{=URL('static','js/gmaps.js')}}"></script>
+  <div class="col-xs-1">
+   <div id="map" style="height:650px;width:700px"></div>
+  </div>
+
+  <script>
+  $(document).ready(function(){
+    map = new GMaps({
+      div: '#map',
+      lat: -27.4560454,
+      lng: -58.9865345,
+    });
+
+    GMaps.geolocate({
+        success: function(position) {
+          map.setCenter(position.coords.latitude, position.coords.longitude);
+        },
+        error: function(error) {
+          alert('Geolocation failed: '+error.message);
+          /*Redirigir al menu*/
+        },
+        not_supported: function() {
+          alert("Your browser does not support geolocation");
+        },
+        /*always: function() {
+          alert("Posicion localizada con exito!");
+        }*/
+      });
+
+
+    $.getJSON('{{=URL('mapa','esculturasMarkers')}}',
+      function(data){
+        map.addMarkers(data)
+      });
+
+
+      /*Vistas para las ubicaciones de iglesias, museos u otros.
+      /*$.getJSON('{{=URL('mapa','museosMarkers')}}',
+      function(data){
+        map.addMarkers(data)
+      });
+
+      $.getJSON('{{=URL('mapa','iglesiasMarkers')}}',
+      function(data){
+        map.addMarkers(data)
+      });
+
+      $.getJSON('{{=URL('mapa','otrosMarkers')}}',
+      function(data){
+        map.addMarkers(data)
+      });*/
+
+      $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin: [-27.4382536,-58.9809245], //Coordenadas del Domo del Centenario
+          destination: [-27.453483,-58.98028],
+          waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+
+      $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin: [-27.453483, -58.98028],
+          destination: [-27.452382,-58.986168
+],
+          //waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+        
+      $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin: [	-27.452382,-58.986168],
+          destination: [-27.453915,	-58.985165],
+          //waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+        $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin: [-27.453915,	-58.985165],
+          destination: [-27.456612,-58.983779],
+          //waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+
+        $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin: [-27.456612,-58.983779],
+          destination: [-27.451694,-58.989029],
+          //waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+
+    $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin: [-27.451694,-58.989029],
+          destination: [-27.449505,-58.984812],
+          //waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+
+
+       $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin:[-27.449505,-58.984812],
+          destination: [-27.44221,-58.982085],
+          //waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#5ECEFF',
+          strokeOpacity: 0.6,
+          strokeWeight: 6
+          });
+        })
+
+        
+      map.setContextMenu({
+          control: 'map',
+          options: [{
+            title: 'Add marker',
+            name: 'add_marker',
+            action: function(e) {
+              this.addMarker({
+                lat: e.latLng.lat(),
+                lng: e.latLng.lng(),
+                title: 'New marker'
+              });
+            }
+          }, {
+            title: 'Museum view',
+            name: 'museum_view',
+            action: function(e) {
+              this.cleanRoute();
+              this.removeMarkers();
+              $.getJSON('{{=URL('mapa','museosMarkers')}}',
+              function(data){
+                map.addMarkers(data)
+              });
+              this.setCenter(e.latLng.lat(), e.latLng.lng());
+            }
+          }, {
+            title: 'Esculture view',
+            name: 'esculture_view',
+            action: function(e) {
+              this.removeMarkers();
+              $.getJSON('{{=URL('mapa','esculturasMarkers')}}',
+              function(data){
+                map.addMarkers(data)
+              });
+
+              $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin: [-27.4382536,-58.9809245], //Coordenadas del Domo del Centenario
+                  destination: [-27.453483,-58.98028],
+                  waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+
+              $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin: [-27.453483, -58.98028],
+                  destination: [-27.452382,-58.986168],
+                  //waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+
+              $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin: [	-27.452382,-58.986168],
+                  destination: [-27.453915,	-58.985165],
+                  //waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+                $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin: [-27.453915,	-58.985165],
+                  destination: [-27.456612,-58.983779],
+                  //waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+
+                $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin: [-27.456612,-58.983779],
+                  destination: [-27.451694,-58.989029],
+                  //waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+
+            $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin: [-27.451694,-58.989029],
+                  destination: [-27.449505,-58.984812],
+                  //waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+
+
+               $.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+              function(data){
+                  map.drawRoute({
+                  origin:[-27.449505,-58.984812],
+                  destination: [-27.44221,-58.982085],
+                  //waypoints:data,
+                  travelMode: 'walking',
+                  strokeColor: '#5ECEFF',
+                  strokeOpacity: 0.6,
+                  strokeWeight: 6
+                  });
+                });
+
+            }
+          }]
+     });
+         /*$.getJSON('{{=URL('mapa','crearSenderoEsculturas')}}',
+      function(data){
+          map.drawRoute({
+          origin:[-27.445425,-58.98037],
+          destination: [-27.4371393, -58.98100410000001],
+          waypoints:data,
+          travelMode: 'walking',
+          strokeColor: '#131540',
+          strokeOpacity: 0.6,
+          strokeWeight: 5
+          });
+        })*/
+
+  });
+  </script>
+  {{pass}}
+
+</div>
+
+</body>
+</html>
+<!--ivory-->
+<!--{{=BEAUTIFY(response._vars)}}-->

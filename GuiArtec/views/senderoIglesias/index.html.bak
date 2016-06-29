@@ -1,0 +1,3 @@
+{{extend 'layout.html'}}
+<h1>Aca va la vista sendero para iglesias</h1>
+{{=BEAUTIFY(response._vars)}}

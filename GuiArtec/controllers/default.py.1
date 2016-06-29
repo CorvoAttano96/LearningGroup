@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+### required - do no delete
+from gluon.serializers import loads_json
+
+def user(): return dict(form=auth())
+def download(): return response.download(request,db)
+def call(): return service()
+### end requires
+def index():
+    return dict()
+
+def mostrarMarcadores():
+    places = []
+    rows = db(db.place.id != None).select()
+    for row in rows:
+        place = {
+        'lat': row.lat,
+        'lng': row.lng,
+        'title': row.name,
+        'infowindow':{'content':"<p>"+ row.descr +"</p>"}
+        }
+        places.append(place)
+
+    return response.json(places)
+
+def error():
+    return dict()

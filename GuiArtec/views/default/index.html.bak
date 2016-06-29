@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/main.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/footer.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/animate.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente Titulo-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic' rel='stylesheet' type='text/css'><!--Fuente Eslogan-->
+  <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'><!--Fuente Nave-->
+  <link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <title>AppGuiartec</title>
+</head>
+<body>
+  
+    <div class="col-md-3 center-block quitar-float text-center espacio-arriba">
+    <img class="animated rubberBand" src="/GuiArtec/static/imgs/iconoguiarTec.png" width="125" height="125">
+    <div class="no-lista animated zoomInDown">
+      <h1 class="josefin grande piel">GuiarTec</h1>
+      <h4 class="open-sans mediano piel-claro">Acompañandote en tu Recorrido Cultural</h4>
+    </div>
+   </div>
+ 
+    <div class="animated slideInDown col-md-12 quitar-float text-center margen-div-bt">
+      <div class="btn-group-vertical">
+        <button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-road"></span> Mapa Interactivo</button>
+        <div id="demo" class="collapse">
+          <div class="btn-group-vertical">
+            <a href="/GuiArtec/senderoEsculturas/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-tower"></span> Esculturas</a>
+            <a href="/GuiArtec/senderoMuseos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-home"></span> Museos</a>
+            <a href="/GuiArtec/senderoPuntos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-map-marker"></span> Puntos de Interes</a>
+          </div>          
+       </div>
+        <br><a href="/GuiArtec/busqueda/index.html" class="btn btn-default2 btn-lg monserrat"><span class="glyphicon glyphicon-search"></span> Búsqueda</a></br>
+      </div>
+    </div>  
+
+
+  <footer>
+    <div class="quitar-float text-center">
+        <ul class="no-lista">
+          <li class="col-md-12 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
+        </ul>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
+<!--ivory-->
+<!--{{=BEAUTIFY(response._vars)}}-->
