@@ -53,17 +53,25 @@
       
   <div class="text-center animated fadeIn">
     <div class="col-md-6 center-block quitar-float">
-      <p><h1 class="monserrat mediano">Lugar de Interes</h1></p>
+      <p><h1 class="monserrat mediano">Lugares de Interes</h1></p>
       <div class="container-fluid chica justificar" id="conten-contenido">         
           <p class="lato chica animated bounceInLeft">Conozca otros Puntos culturales dentro de la <strong>Ciudad de Resistencia</strong>, que son patrimonio documental y bibliográfico, los yacimientos y zonas arqueológicas, así como los sitios naturales, jardines y parques, que tengan valor artístico, histórico o antropológico.</p>
-          <ol class="monserrat" style="font-style:italic">
-            <li>El Fogon de los Arrieros</li>
+          <ol class="monserrat" style="font-style:italic;margin-left:-15px">
+              <h>Algunos de ellos Son</h>  
+              <p>
+   
+              </p>
+           <li>El Fogon de los Arrieros</li>
             <li>Casa Lagerheim</li>
             <li>Chalet Perrando</li>
             <li>Paseo Costanero</li>
             <li>Casa de las Culturas</li>
             <li>El Carpo Bar</li>
             <li>Peña Martin Fierro</li>
+            <li>Guido Miranda</li>
+            <li>Centro Cultural La Flota</li>
+            <li>Nanas Suena Bien</li>
+            <li>Parque de la Democracia</li>
           </ol>                 
       </div>
     </div>

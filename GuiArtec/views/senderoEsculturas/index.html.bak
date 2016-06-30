@@ -36,7 +36,7 @@
             <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Recorridos Dinamicos<span class="caret"></span></a>
               <ul class="dropdown-menu monserrat">
                 <li><a href="/GuiArtec/senderoMuseos/index.html"><span class="glyphicon glyphicon-home"></span> Museos</a></li>
-                <li><a href="/GuiArtec/senderoPuntos/index.html"><span class="glyphicon glyphicon-map-marker"></span> Puntos de Interes</a></li>
+                <li><a href="/GuiArtec/senderoPuntos/index.html"><span class="glyphicon glyphicon-map-marker"></span> Lugares de Interes</a></li>
                 <li class="divider"></li>
                 <li><a href="/GuiArtec/busqueda/index.html"><span class="glyphicon glyphicon-filter"></span> Búsqueda</a></li>
               </ul>           
