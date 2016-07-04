@@ -61,22 +61,15 @@
         </div>           
     </div>      
   </div>  
-<center>            
-        <div class="container">
-            <form method="post" id="geocoding_form">
-              <label for="address">Address:</label>
-              <div class="input">
-                <input type="text" id="address" name="address">
-                <input type="submit" class="button" value="Search">
-              </div>
-            </form>
+  <div class="container">
+        <div class="row">           
+          <div class="col-md-12">
+              <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+              <script src="{{=URL('static','js/gmaps.js')}}"></script>
+              <div class=" responsive-map" id="map"></div>
+          </div>
         </div> 
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="{{=URL('static','js/gmaps.js')}}"></script>
-        <script src="gmaps.core.js"></script> 
-        <script src="gmaps.geofences.js"></script> 
-        <div class="animated zoomIn center-block" id="map" style="height:650px;width:850px;margin:15px 15px 15px 15px"></div>
-</center>
+  </div>
       
     
   

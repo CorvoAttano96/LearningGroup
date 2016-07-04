@@ -1,58 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <title>Bootstrap Case</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/main.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/footer.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/animate.css">
-  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente Titulo-->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic' rel='stylesheet' type='text/css'><!--Fuente Eslogan-->
-  <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'><!--Fuente Nave-->
-  <link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <title>AppGuiartec</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><!--Aca importo la hojas de estilo de Bootstrap-->
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente textooimportante-->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'><!-- Fuente Contenido -->
+  <link rel="stylesheet" href="/GuiArtec/static/css/footer.css"><!-- Aca importo la hoja de estilos que utilizo en el footer-->
+  <link rel="stylesheet" href="/GuiArtec/static/css/search.css"><!-- Aca importo la hoja de estilos que utilizo en view Busqueda -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> <!--Aca importo el js de JQuery me facilita trabajar con librerias JS-->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> <!-- Aca importo un JS de Bootstrap para obtener func. "dinamismo"--> 
 </head>
 <body>
-  
-    <div class="col-md-3 center-block quitar-float text-center espacio-arriba">
-    <img class="animated rubberBand" src="/GuiArtec/static/imgs/iconoguiarTec.png" width="125" height="125">
-    <div class="no-lista animated zoomInDown">
-      <h1 class="josefin grande piel">GuiarTec</h1>
-      <h4 class="open-sans mediano piel-claro">Acompañandote en tu Recorrido Cultural</h4>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="nav">
+        <img class="navbar-left" src="/GuiArtec/static/imgs/iconoguiarTec.png" width="30" height="30" style="margin-top:8px">
+        <a class="navbar-brand josefin" href="/GuiArtec/default/index.html" style="margin-left:1px;font-size:1.6em;"> GuiarTec</a>            
+      </div>  
     </div>
-   </div>
- 
-    <div class="animated slideInDown col-md-12 quitar-float text-center margen-div-bt">
-      <div class="btn-group-vertical">
-        <button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-road"></span> Esculturas</button>
-        <div id="demo" class="collapse">
-          <div class="btn-group-vertical">
-            <a href="/GuiArtec/senderoEsculturas/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-tower"></span> Escultura1</a>
-            <a href="/GuiArtec/senderoMuseos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-home"></span> Escultura2</a>
-            <a href="/GuiArtec/senderoPuntos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-map-marker"></span> Escultura3</a>
-          </div>          
-       </div>
-        <br><a href="/GuiArtec/busqueda/index.html" class="btn btn-default2 btn-lg monserrat"><span class="glyphicon glyphicon-search"></span> Búsqueda</a></br>
-      </div>
-    </div>  
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">          
+          <li class="josefin"><a href="../default/index-html">Inicio</a></li>
+          <li  class="dropdown">
+            <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Recorridos Dinamicos<span class="caret"></span></a>
+              <ul class="dropdown-menu monserrat">
+                <li><a href="/GuiArtec/senderoEsculturas/index.html"><span class="glyphicon glyphicon-tower"></span> Senderos-Esculturas</a></li>
+                <li><a href="/GuiArtec/senderoMuseos/index.html"><span class="glyphicon glyphicon-home"></span> Museos</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Lugar de Interes</a></li>
+             </ul>            
+      </li>
+      <li class="dropdown">
+            <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Acerca de<span class="caret"></span></a>
+            <ul class="dropdown-menu monserrat">              
+              <li><a href="#">Apps Vinculada</a></li>
+              <li><a href="#">¿Quines Somos?</a></li>
+            </ul>           
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="container-fluid text-center quitar-float">
+    <h2 class="monserrat semi-chica">Busqueda de Punto de Interés</h2>
+  </div> 
 
+  <div class="container text-center">
+    <div class="row">
+      <form class="col-md-12 form-inline" role="form">
+        <div class="form-group">
+          <label class="josefin" for="input-lg" style="color:#082825"><h4><b>Punto de Interes:</b></h4></label>
+          <input type="form-control input-lg" id="input-lg" type="text" placeholder="Ej: Chalet Perrando.." style="font-style:italic;color:#FF4357">
+          <a href="/GuiArtec/appvinc/index.html" data-toggle="modal" data-target="#myModal" class="btn btn-circle-sm btn-primary"><span class="glyphicon glyphicon-search"></span></a>
+        </div>
+              
+      </form>    
+    </div>
+  </div>
 
-  <footer>
+<footer>
     <div class="quitar-float text-center">
         <ul class="no-lista">
-          <li class="col-md-12 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
+          <li class="col-md-6 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
+          <li class="col-md-6 inline-block monserrat" style="margin-right:-20px;font-style:italic"><p class="text-muted"><img src="/GuiArtec/static/imgs/icons/iconoLG.png" width="22" height="40"> LearningGroup® 2016</p></li>
         </ul>
     </div>
-  </footer>
-
-
-
+ </footer>
 
 </body>
 </html>
-<!--ivory-->
-<!--{{=BEAUTIFY(response._vars)}}-->
