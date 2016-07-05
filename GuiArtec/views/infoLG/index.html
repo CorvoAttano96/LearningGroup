@@ -1,80 +1,55 @@
-{{extend 'layout.html'}}
-<html>
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente Titulo-->
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic' rel='stylesheet' type='text/css'><!--Fuente Eslogan-->
-	<link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'><!--Fuente Nave-->
-	<link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<title>¿Quienes somos?</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/GuiArtec/static/css/font-awesome.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/sendero.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/footer.css">
+  <link rel="stylesheet" href="/GuiArtec/static/css/animate.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'>
+   <!-- Aca esta la papona con esto realizo la dinamica de mi navbar-->  
+  <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> 
+  <script src="/GuiArtec/static/js/bootstrap.min.js" type="text/javascript"></script>
+  <title>¿Quienes somos?</title>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-                  
-          <span class="navbar-brand glyphicon glyphicon-map-marker " aria-hidden="true"></span>
-          <a class="navbar-brand josefin pequenio" href="index.html">GuiarTec</a>
-          
-          
-          <!--<div class="navbar-brand josefin pequenio">
-          <a href="index.html"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-          <b>GuiarTec</b></a>
-          </div>-->
-          
-          
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle josefin pequenio" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Esculturas</a></li>
-                <li><a href="#">Museos</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-	<!-- <nav class="luckiest padding-largo se-naranja">
-				<ul>
-					<a href="#" class="margen-derecho piel">Menú</a>
-					<a href="#" class="margen-derecho piel">Colaboradores</a>
-					<a href="#" class="margen-derecho piel">Acerca de</a>
-
-				</ul>
-	</nav> -->
-   <!--<a href="#" class="piel"><img src="imgs/botons/flechaD-btn.png" border="0" width="200" height="100">hola</a>-->
-	 
-   <!--<div class="col-md-12 quitar-float text-center margen-div-bt">
-      <div class="btn-group-vertical">
-        <a href="sendero.html" class="btn btn-object monserrat"><span class="glyphicon glyphicon-road"></span> Sendero - Esculturas</a>
-      </div>
-    </div>-->    
-
-  <div id="wrap">
-
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="nav">
+        <img class="navbar-left" src="/GuiArtec/static/imgs/iconoguiarTec.png" width="30" height="30" style="margin-top:8px">
+        <a class="navbar-brand josefin" href="#" style="margin-left:1px;font-size:1.8em;"> GuiarTec</a>            
+      </div>  
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">          
+          <li class="josefin"><a href="../default/index-html">Inicio</a></li>
+          <li  class="dropdown">
+            <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Recorridos Dinamicos<span class="caret"></span></a>
+              <ul class="dropdown-menu monserrat">
+                <li><a href="/GuiArtec/senderoMuseos/index.html"><span class="glyphicon glyphicon-home"></span> Museos</a></li>
+                <li><a href="/GuiArtec/senderoPuntos/index.html"><span class="glyphicon glyphicon-map-marker"></span> Lugares de Interes</a></li>
+                <li class="divider"></li>
+                <li><a href="/GuiArtec/busqueda/index.html"><span class="glyphicon glyphicon-filter"></span> Búsqueda</a></li>
+              </ul>           
+      </li>
+      <li class="dropdown">
+            <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Acerca de<span class="caret"></span></a>
+            <ul class="dropdown-menu monserrat">
+              <li><a href="#">Apps Vinculadas</a></li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
       <!-- Begin page content -->
       <div class="container">
         <div class="page-header">
@@ -83,27 +58,30 @@
         <p class="lead piel-claro">Somos una pequeña empresa llamada Learning Group que nació en el Informatorio.</p>
         <p class="lead piel-claro">Nuestra empresa se creó para que todas las personas puedan aprender jugando con nuestras aplicaciones.</p>
         <p class="lead piel-claro">Nuestro equipo esta conformado por los siguientes integrantes: Favio Veron, Cristhian Pinilla, Fiore Vicentin, Gisela Cerdan y Gastón Niveyro.</p>
-        <p class="lead piel-claro">Nuestro Facebook es: </p> <h3><span class="josefin celeste"><i class="fa fa-facebook-official" aria-hidden="true"></i><a href="https://www.facebook.com/LGInformatorio2016/"> LGInformatorio2016/</a></span></h3> <p class="lead piel-claro"> Y nuestro correo es:</p> <h3><span class="josefin celeste"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:learning_group@outlook.com">learning_group@outlook.com</a></span></h3>
         <p class="lead piel-claro">Nosotros no estaríamos aca si no fuera por nuestros colaboradores, Noelia Pinto, Gilda Romero, Blass, Facundo, Madia, etc. </p>
+        <p class="lead piel-claro">Nuestro Facebook es: </p> <h3><span class="josefin verde"><i class="fa fa-facebook-official" aria-hidden="true"></i><a href="https://www.facebook.com/LGInformatorio2016/"> LGInformatorio2016/</a></span></h3> <p class="lead piel-claro"> Y nuestro correo es:</p> <h3><span class="josefin verde"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:learning_group@outlook.com">learning_group@outlook.com</a></span></h3>
         <br>
-
      </div>
 
-      <div id="push"></div>
-  </div>
+
   
-   <div id="footer">
-      <div class="text-center ">
+
+<footer>
+      <div class="text-center quitar-float">
         <ul class="no-lista">
+<<<<<<< HEAD
+              <li class="col-md-6 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
+              <li class="col-md-6 inline-block monserrat" style="margin-right:-20px;font-style:italic"><p class="text-muted"><img src="/GuiArtec/static/imgs/icons/iconoLG.png" width="22" height="40"> LearningGroup® 2016</p></li>
+        </ul>
+=======
          <h3><li class="col-md-4 "><a href="/GuiArtec/appsvinc/index.html">Apps Vinculadas</a></li></h3>
          <h3><li class="col-md-4 "><p class="muted credit text-center">LG® 2016</p></li></h3>
          <li class="col-md-4 "><img src="file:///C:/Users/Karen%20Araceli/Desktop/Logo%20informatorio%20Color.png" width="150" height="30"></li>
       </ul>
+>>>>>>> 0b8b523b3d1320fe48fb3565ae8bb743752794e7
       </div>
-  </div>
+</footer>
  
-        
-     
 
 
 </body>
