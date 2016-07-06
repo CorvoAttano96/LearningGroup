@@ -144,3 +144,10 @@ a{
   line-height: 1.65;
   border-radius: 30px;
 }
+.container-vinc{
+    position: relative; 
+ 	width: 450px;
+ 	height:370px;
+ 	left: 5px;
+ 	top: 30px;
+}
