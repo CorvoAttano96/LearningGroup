@@ -179,21 +179,30 @@
                   visible:true,
                   //Lo que se ejecuta al clikear el marcador
                   click: function(e){  
-                    path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]]; 
+                    path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]];                
                     map.removePolylines();
-                    //map.removeMarkers();
                     $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
                     function(data){
-                        map.drawRoute({ //Dibuja la ruta
-                          origin: [position.coords.latitude, position.coords.longitude],
-                          destination: [e.position.lat(), e.position.lng()],
-                          //waypoints:data,
-                          travelMode: 'walking',
-                          bounds: path,
-                          strokeColor: '#3f62d7',
-                          strokeOpacity: 0.6,
-                          strokeWeight: 6
+                        
+                        for(i=0; i< data.length ; i++) {
+                              marcadores[i].setVisible(false)
+                        }
+
+                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
+                          function(data){
+                          map.drawRoute({ //Dibuja la ruta
+                            //var location: 
+                            origin: [position.coords.latitude, position.coords.longitude],
+                            destination: [e.position.lat(), e.position.lng()],
+                            travelMode: 'walking',
+                            strokeColor: '#3f62d7',
+                            strokeOpacity: 0.6,
+                            strokeWeight: 6,
+                            //bounds: path,
+                            //waypoints: data,
+                          }); 
                         });
+                        
                         //Dibujo poligonos para usarlos como limites de geofence.
                         polygon = map.drawPolygon({
                           paths: path,
@@ -207,12 +216,24 @@
                         circle = map.drawCircle({
                           lat: tulat,
                           lng: tulng,
-                          radius: 250,
+                          radius: 200,
                           strokeColor: 'transparent',
                           strokeOpacity: 1,
                           strokeWeight: 3,
                           fillColor: 'transparent'
                         });
+
+                        //Oculto los marcadores fuera del rango
+                        for(i=0; i< data.length ; i++){
+                          var check = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          var check1 = (map.checkGeofence(data[i].lat,data[i].lng,polygon));
+                          if (check && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }
+                          if (check1 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          };     
+                        }
 
                         circle = map.drawCircle({
                           lat: e.position.lat(),
@@ -223,18 +244,55 @@
                           strokeWeight: 3,
                           fillColor: 'transparent'
                         });
-                        //Oculto los marcadores fuera del rango
-                        for(i=0; i< data.length ; i++){
-                          var check = !(map.checkGeofence(data[i].lat,data[i].lng,polygon));
-                          if (check && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
-                            marcadores[i].setVisible(false)
-                          }
-                          /*if (data[i].lat == e.position.lat() && data[i].lng == e.position.lng()) {
-                            marcadores[i].setVisible(true)
-                          }*/
-                             
-                        };     
 
+                        //Oculto los marcadores fuera del rango 2
+                        for(i=0; i< data.length ; i++){
+                          var check2 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          if (check2 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }; 
+                        }
+
+
+                        circle = map.drawCircle({
+                          lat: e.position.lat(),
+                          lng: tulng,
+                          radius: 150,
+                          strokeColor: 'transparent',
+                          strokeOpacity: 1,
+                          strokeWeight: 3,
+                          fillColor: 'transparent'
+                        });
+
+                        //Oculto los marcadores fuera del rango 2
+                        for(i=0; i< data.length ; i++){
+                          var check3 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          if (check3 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }; 
+                        }
+
+                        circle = map.drawCircle({
+                          lat: tulat,
+                          lng: e.position.lng(),
+                          radius: 150,
+                          strokeColor: 'transparent',
+                          strokeOpacity: 1,
+                          strokeWeight: 3,
+                          fillColor: 'transparent'
+                        });
+
+                        //Oculto los marcadores fuera del rango 2
+                        for(i=0; i< data.length ; i++){
+                          var check4 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          if (check4 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }
+                          if (data[i].lat == e.position.lat() && data[i].lng == e.position.lng()) {
+                            marcadores[i].setVisible(true)  
+                          }; 
+                        }
+                              
                     })
 
                   }
@@ -243,119 +301,6 @@
             }
             map.fitLatLngBounds(bounds);
           });
-
-        
-        map.setContextMenu({
-          control: 'marker',
-          options: [{
-            title: 'Add marker',
-            name: 'add_marker',
-            action: function(e) {
-              this.addMarker({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-                title: 'Tu marcador',
-                click: function(e) {
-                /*alert('You clicked in this marker');*/
-              }
-              });
-            }
-          }, {
-            title: 'Crear Ruta',
-            name: 'crear_ruta',
-            action: function(e) {
-              this.cleanRoute();
-              this.removeMarkers();
-              /*$.getJSON('{{=URL('mapaEsculturas','esculturasMarkers')}}',
-              function(data){
-                map.addMarkers(data)
-              });*/
-
-              $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
-              function(data){
-                var len = data.length;
-                var bounds = [];
-                var path = [];
-                for(i=0; i< len ; i++){
-                    var lat = data[i].lat;
-                    var lng = data[i].lng;
-                    var title = data[i].title;
-                    var info = data[i].infoWindow;
-                    var ico = '/GuiArtec/static/imgs/sculture.png';
-                    var latlng = new google.maps.LatLng(lat, lng);
-                    bounds.push(latlng);
-                    map.addMarker({
-                      lat: lat,
-                      lng: lng,
-                      title:title,
-                      infoWindow : info,
-                      icon:ico,
-                      click: function(e){
-                        map.removePolylines();
-                        /*map.removeMarkers();*/
-                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
-                        function(data){
-                            map.drawRoute({
-                              origin: [position.coords.latitude, position.coords.longitude],
-                              destination: [e.position.lat(), e.position.lng()],
-                              waypoints:data,
-                              travelMode: 'driving',
-                              strokeColor: '#3f62d7',
-                              strokeOpacity: 0.6,
-                              strokeWeight: 6
-                            });
-                            /*polygon = map.drawPolygon({
-                              paths: bounds,
-                              strokeColor: '#BBD8E9',
-                              strokeOpacity: 1,
-                              strokeWeight: 3,
-                              fillColor: '#BBD8E9',
-                              fillOpacity: 0.6
-                            });
-
-                            for(i=0; i< bounds.length ; i++){  
-                              if (map.checkGeofence(data[i].lat, data[i].lng, polygon) ) {
-                                map.addMarker({
-                                  lat: data[i].lat,
-                                  lng:data[i].lng,
-                                  title:"Puedes visitar este punto",
-                                  icon: "url",
-                                });
-                              }  
-                            };*/
-                        })
-
-                      }
-                    });
-                }
-                  map.fitLatLngBounds(bounds);
-              });
-
-              $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
-              function(data){
-                  map.drawRoute({
-                  origin: [position.coords.latitude, position.coords.longitude], 
-                  destination: [ e.latLng.lat(), e.latLng.lng()],
-                  waypoints:data,
-                  travelMode: 'walking',
-                  strokeColor: '#5ECEFF',
-                  strokeOpacity: 0.6,
-                  strokeWeight: 6
-                  });
-                });
-
-             this.addMarker({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-                title: 'New marker',
-                click: function(e) {
-                alert('You clicked in this marker');
-                }
-              });
-             }
-            }
-          ]
-        });
 
         },
         error: function(error) {
@@ -370,7 +315,7 @@
         }*/
       });
 
-    $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
+    /*$.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
       function(data){
         var len = data.length ;
         for(i=0; i< (len - 1) ; i++){
@@ -387,10 +332,10 @@
               strokeWeight: 6
             });
         }
-      });
+      });*/
 
       //Primer recorrido
-      /*$.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas')}}',
+      $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas')}}',
       function(data){
           map.drawRoute({
           origin: [-27.4382536,-58.9809245], //Coordenadas del Domo del Centenario
@@ -479,7 +424,7 @@
           strokeOpacity: 0.6,
           strokeWeight: 6
           });
-        })*/
+        })
 
       //Lo que se ejecuta al hacer click derecho.  
       map.setContextMenu({
@@ -524,9 +469,9 @@
              this.addMarker({
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
-                title: 'New marker',
+                title: 'Tu destino',
                 click: function(e) {
-                alert('You clicked in this marker');
+                //alert('You clicked in this marker');
                 }
               });
              }
@@ -536,7 +481,8 @@
     
   });
 
-  $('#reset').click(function(){
+
+$('#reset').click(function(){
     var map = new GMaps({
       div: '#map',
       lat: -27.4560454,
@@ -595,21 +541,31 @@
                   visible:true,
                   //Lo que se ejecuta al clikear el marcador
                   click: function(e){  
-                    path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]]; 
+                    path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]];                
                     map.removePolylines();
-                    //map.removeMarkers();
                     $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
                     function(data){
-                        map.drawRoute({ //Dibuja la ruta
-                          origin: [position.coords.latitude, position.coords.longitude],
-                          destination: [e.position.lat(), e.position.lng()],
-                          //waypoints:data,
-                          travelMode: 'walking',
-                          bounds: path,
-                          strokeColor: '#3f62d7',
-                          strokeOpacity: 0.6,
-                          strokeWeight: 6
+                        
+
+                        for(i=0; i< data.length ; i++) {
+                              marcadores[i].setVisible(false)
+                        }
+
+                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
+                          function(data){
+                          map.drawRoute({ //Dibuja la ruta
+                            //var location: 
+                            origin: [position.coords.latitude, position.coords.longitude],
+                            destination: [e.position.lat(), e.position.lng()],
+                            travelMode: 'walking',
+                            strokeColor: '#3f62d7',
+                            strokeOpacity: 0.6,
+                            strokeWeight: 6,
+                            //bounds: path,
+                            //waypoints: data,
+                          }); 
                         });
+                        
                         //Dibujo poligonos para usarlos como limites de geofence.
                         polygon = map.drawPolygon({
                           paths: path,
@@ -623,12 +579,24 @@
                         circle = map.drawCircle({
                           lat: tulat,
                           lng: tulng,
-                          radius: 250,
+                          radius: 200,
                           strokeColor: 'transparent',
                           strokeOpacity: 1,
                           strokeWeight: 3,
                           fillColor: 'transparent'
                         });
+
+                        //Oculto los marcadores fuera del rango
+                        for(i=0; i< data.length ; i++){
+                          var check = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          var check1 = (map.checkGeofence(data[i].lat,data[i].lng,polygon));
+                          if (check && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }
+                          if (check1 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          };     
+                        }
 
                         circle = map.drawCircle({
                           lat: e.position.lat(),
@@ -639,18 +607,55 @@
                           strokeWeight: 3,
                           fillColor: 'transparent'
                         });
-                        //Oculto los marcadores fuera del rango
-                        for(i=0; i< data.length ; i++){
-                          var check = !(map.checkGeofence(data[i].lat,data[i].lng,polygon));
-                          if (check && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
-                            marcadores[i].setVisible(false)
-                          }
-                          /*if (data[i].lat == e.position.lat() && data[i].lng == e.position.lng()) {
-                            marcadores[i].setVisible(true)
-                          }*/
-                             
-                        };     
 
+                        //Oculto los marcadores fuera del rango 2
+                        for(i=0; i< data.length ; i++){
+                          var check2 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          if (check2 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }; 
+                        }
+
+
+                        circle = map.drawCircle({
+                          lat: e.position.lat(),
+                          lng: tulng,
+                          radius: 150,
+                          strokeColor: 'transparent',
+                          strokeOpacity: 1,
+                          strokeWeight: 3,
+                          fillColor: 'transparent'
+                        });
+
+                        //Oculto los marcadores fuera del rango 2
+                        for(i=0; i< data.length ; i++){
+                          var check3 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          if (check3 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }; 
+                        }
+
+                        circle = map.drawCircle({
+                          lat: tulat,
+                          lng: e.position.lng(),
+                          radius: 150,
+                          strokeColor: 'transparent',
+                          strokeOpacity: 1,
+                          strokeWeight: 3,
+                          fillColor: 'transparent'
+                        });
+
+                        //Oculto los marcadores fuera del rango 2
+                        for(i=0; i< data.length ; i++){
+                          var check4 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                          if (check4 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                            marcadores[i].setVisible(true)
+                          }
+                          if (data[i].lat == e.position.lat() && data[i].lng == e.position.lng()) {
+                            marcadores[i].setVisible(true)  
+                          }; 
+                        }
+                              
                     })
 
                   }
@@ -659,119 +664,6 @@
             }
             map.fitLatLngBounds(bounds);
           });
-
-        
-        map.setContextMenu({
-          control: 'marker',
-          options: [{
-            title: 'Add marker',
-            name: 'add_marker',
-            action: function(e) {
-              this.addMarker({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-                title: 'Tu marcador',
-                click: function(e) {
-                /*alert('You clicked in this marker');*/
-              }
-              });
-            }
-          }, {
-            title: 'Crear Ruta',
-            name: 'crear_ruta',
-            action: function(e) {
-              this.cleanRoute();
-              this.removeMarkers();
-              /*$.getJSON('{{=URL('mapaEsculturas','esculturasMarkers')}}',
-              function(data){
-                map.addMarkers(data)
-              });*/
-
-              $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
-              function(data){
-                var len = data.length;
-                var bounds = [];
-                var path = [];
-                for(i=0; i< len ; i++){
-                    var lat = data[i].lat;
-                    var lng = data[i].lng;
-                    var title = data[i].title;
-                    var info = data[i].infoWindow;
-                    var ico = '/GuiArtec/static/imgs/sculture.png';
-                    var latlng = new google.maps.LatLng(lat, lng);
-                    bounds.push(latlng);
-                    map.addMarker({
-                      lat: lat,
-                      lng: lng,
-                      title:title,
-                      infoWindow : info,
-                      icon:ico,
-                      click: function(e){
-                        map.removePolylines();
-                        /*map.removeMarkers();*/
-                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
-                        function(data){
-                            map.drawRoute({
-                              origin: [position.coords.latitude, position.coords.longitude],
-                              destination: [e.position.lat(), e.position.lng()],
-                              waypoints:data,
-                              travelMode: 'driving',
-                              strokeColor: '#3f62d7',
-                              strokeOpacity: 0.6,
-                              strokeWeight: 6
-                            });
-                            /*polygon = map.drawPolygon({
-                              paths: bounds,
-                              strokeColor: '#BBD8E9',
-                              strokeOpacity: 1,
-                              strokeWeight: 3,
-                              fillColor: '#BBD8E9',
-                              fillOpacity: 0.6
-                            });
-
-                            for(i=0; i< bounds.length ; i++){  
-                              if (map.checkGeofence(data[i].lat, data[i].lng, polygon) ) {
-                                map.addMarker({
-                                  lat: data[i].lat,
-                                  lng:data[i].lng,
-                                  title:"Puedes visitar este punto",
-                                  icon: "url",
-                                });
-                              }  
-                            };*/
-                        })
-
-                      }
-                    });
-                }
-                  map.fitLatLngBounds(bounds);
-              });
-
-              $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
-              function(data){
-                  map.drawRoute({
-                  origin: [position.coords.latitude, position.coords.longitude], 
-                  destination: [ e.latLng.lat(), e.latLng.lng()],
-                  waypoints:data,
-                  travelMode: 'walking',
-                  strokeColor: '#5ECEFF',
-                  strokeOpacity: 0.6,
-                  strokeWeight: 6
-                  });
-                });
-
-             this.addMarker({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-                title: 'New marker',
-                click: function(e) {
-                alert('You clicked in this marker');
-                }
-              });
-             }
-            }
-          ]
-        });
 
         },
         error: function(error) {
@@ -785,7 +677,7 @@
           alert("Posicion localizada con exito!");
         }*/
       });
-      
+
     $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
       function(data){
         var len = data.length ;
@@ -950,7 +842,8 @@
           ]
      });
     
-  });
+  });  
+
 
   </script>
   {{pass}}
