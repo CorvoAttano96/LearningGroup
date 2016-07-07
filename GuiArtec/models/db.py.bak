@@ -143,20 +143,12 @@ db.define_table('scul',
             Field('lng','float'),
             migrate='scul.table')
 
-db.define_table('scul2',
+db.define_table('caminod',
             Field('nombre','text',requires=IS_NOT_EMPTY()),
             Field('direccion','text'),
-            Field('lat','float'),
-            Field('lng','float'),
-            migrate='scul2.table')
-
-db.define_table('scul6',
-            Field('nombre','text',requires=IS_NOT_EMPTY()),
-            Field('direccion','text'),
-            Field('lat','float'),
-            Field('lng','float'),
-            migrate='scul6.table')
-
+            Field('lat','double'),
+            Field('lng','double'),
+            migrate='caminod.table')
 
 db.define_table('museums',
             Field('name','text',requires=IS_NOT_EMPTY()),
@@ -179,7 +171,7 @@ db.define_table('camino',
             Field ('file','upload'),
             migrate='camino.table')
 
-db.define_table('esculturaf',
+db.define_table('esculturag',
     Field('nombre','text'),
     Field('fecha','text'),
     Field('escultor','text'),

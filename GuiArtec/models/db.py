@@ -143,20 +143,12 @@ db.define_table('scul',
             Field('lng','float'),
             migrate='scul.table')
 
-db.define_table('scul2',
+db.define_table('caminoe',
             Field('nombre','text',requires=IS_NOT_EMPTY()),
             Field('direccion','text'),
-            Field('lat','float'),
-            Field('lng','float'),
-            migrate='scul2.table')
-
-db.define_table('scul6',
-            Field('nombre','text',requires=IS_NOT_EMPTY()),
-            Field('direccion','text'),
-            Field('lat','float'),
-            Field('lng','float'),
-            migrate='scul6.table')
-
+            Field('lat','double'),
+            Field('lng','double'),
+            migrate='caminoe.table')
 
 db.define_table('museums',
             Field('name','text',requires=IS_NOT_EMPTY()),
