@@ -143,12 +143,12 @@ db.define_table('scul',
             Field('lng','float'),
             migrate='scul.table')
 
-db.define_table('caminod',
+db.define_table('caminoe',
             Field('nombre','text',requires=IS_NOT_EMPTY()),
             Field('direccion','text'),
             Field('lat','double'),
             Field('lng','double'),
-            migrate='caminod.table')
+            migrate='caminoe.table')
 
 db.define_table('museums',
             Field('name','text',requires=IS_NOT_EMPTY()),

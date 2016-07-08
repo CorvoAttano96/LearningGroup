@@ -144,6 +144,19 @@ a{
   line-height: 1.65;
   border-radius: 30px;
 }
+
+.titulo{
+	font-size: 5.5em;
+}
+
+.medio{
+	font-size: 1.3em;
+}
+
+.azul{
+	color:#00C4FF;
+}
+
 .container-vinc{
     position: relative; 
  	width: 450px;

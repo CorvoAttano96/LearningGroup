@@ -1,74 +1,264 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <title>Bootstrap Case</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/main.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/footer.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/animate.css">
-  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente Titulo-->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic' rel='stylesheet' type='text/css'><!--Fuente Eslogan-->
-  <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'><!--Fuente Nave-->
-  <link href='https://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <title>AppGuiartec</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><!--Aca importo la hojas de estilo de Bootstrap-->
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'> <!-- Fuente textooimportante-->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'><!-- Fuente Contenido -->
+  <link rel="stylesheet" href="/GuiArtec/static/css/footer.css"><!-- Aca importo la hoja de estilos que utilizo en el footer-->
+  <link rel="stylesheet" href="/GuiArtec/static/css/search.css"><!-- Aca importo la hoja de estilos que utilizo en view Busqueda -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> <!--Aca importo el js de JQuery me facilita trabajar con librerias JS-->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> <!-- Aca importo un JS de Bootstrap para obtener func. "dinamismo"--> 
+
+  <!--Aca sigue el script que ejecuta las busquedas!-->
+  <script language="javascript">
+    
+    //Busco en todas las tablas. Puede que pongamos esta busqueda como la unica.. 
+    function doSearch0(){
+      var tableReg = document.getElementById('museums');
+      var tableReg1 = document.getElementById('points');
+      var searchText = document.getElementById('searchTerm').value.toLowerCase();
+      var cellsOfRow="";
+      var found=false;
+      var compareWith="";
+ 
+      //Bloque de busqueda por la primer tabla!
+
+      // Recorremos todas las filas con contenido de la tabla
+      for (var i = 1; i < tableReg.rows.length; i++)
+      {
+        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+          compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+          // Buscamos el texto en el contenido de la celda
+          if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+          {
+            found = true;
+          }
+        }
+        if(found)
+        {
+          tableReg.rows[i].style.display = '';
+        } else {
+          // si no ha encontrado ninguna coincidencia, esconde la
+          // fila de la tabla
+          tableReg.rows[i].style.display = 'none';
+        }
+      }
+
+      var cellsOfRow="";
+      var found=false;
+      var compareWith="";
+
+      //Bloque de busqueda por la segunda tabla!
+      
+      // Recorremos todas las filas con contenido de la tabla
+      for (var i = 1; i < tableReg1.rows.length; i++)
+      {
+        cellsOfRow = tableReg1.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+          compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+          // Buscamos el texto en el contenido de la celda
+          if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+          {
+            found = true;
+          }
+        }
+        if(found)
+        {
+          tableReg1.rows[i].style.display = '';
+        } else {
+          // si no ha encontrado ninguna coincidencia, esconde la
+          // fila de la tabla
+          tableReg1.rows[i].style.display = 'none';
+        }
+      }
+
+    }
+
+
+    //Busco en la primer tabla
+    function doSearch()
+    {
+      var tableReg = document.getElementById('museums');
+      var searchText = document.getElementById('searchMuseum').value.toLowerCase();
+      var cellsOfRow="";
+      var found=false;
+      var compareWith="";
+ 
+      // Recorremos todas las filas con contenido de la tabla
+      for (var i = 1; i < tableReg.rows.length; i++)
+      {
+        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+          compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+          // Buscamos el texto en el contenido de la celda
+          if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+          {
+            found = true;
+          }
+        }
+        if(found)
+        {
+          tableReg.rows[i].style.display = '';
+        } else {
+          // si no ha encontrado ninguna coincidencia, esconde la
+          // fila de la tabla
+          tableReg.rows[i].style.display = 'none';
+        }
+      }
+    }
+
+    //Busco en la segunda tabla
+    function doSearch1()
+    {
+      var tableReg = document.getElementById('points');
+      var searchText = document.getElementById('searchPoint').value.toLowerCase();
+      var cellsOfRow="";
+      var found=false;
+      var compareWith="";
+ 
+      // Recorremos todas las filas con contenido de la tabla
+      for (var i = 1; i < tableReg.rows.length; i++)
+      {
+        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+          compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+          // Buscamos el texto en el contenido de la celda
+          if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+          {
+            found = true;
+          }
+        }
+        if(found)
+        {
+          tableReg.rows[i].style.display = '';
+        } else {
+          // si no ha encontrado ninguna coincidencia, esconde la
+          // fila de la tabla
+          tableReg.rows[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
+
 </head>
 <body>
-  
-    <div class="col-md-3 center-block quitar-float text-center espacio-arriba">
-    <img class="animated rubberBand" src="/GuiArtec/static/imgs/iconoguiarTec.png" width="125" height="125">
-    <div class="no-lista animated zoomInDown">
-      <h1 class="josefin grande piel">GuiarTec</h1>
-      <h4 class="open-sans mediano piel-claro">Acompañandote en tu Recorrido Cultural</h4>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="nav">
+        <img class="navbar-left" src="/GuiArtec/static/imgs/iconoguiarTec.png" width="30" height="30" style="margin-top:8px">
+        <a class="navbar-brand josefin" href="/GuiArtec/default/index.html" style="margin-left:1px;font-size:1.6em;"> GuiarTec</a>            
+      </div>  
     </div>
-   </div>
- 
-    <div class="animated slideInDown col-md-12 quitar-float text-center margen-div-bt">
-      <div class="btn-group-vertical">
-        <button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-road"></span> Esculturas</button>
-        <div id="demo" class="collapse">
-          <div class="btn-group-vertical">
-            <a href="/GuiArtec/senderoEsculturas/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-tower"></span> Escultura1</a>
-            <a href="/GuiArtec/senderoMuseos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-home"></span> Escultura2</a>
-            <a href="/GuiArtec/senderoPuntos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-map-marker"></span> Escultura3</a>
-          </div>          
-       </div>
-      <button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-road"></span> Esculturas</button>
-        <div id="demo" class="collapse">
-          <div class="btn-group-vertical">
-            <a href="/GuiArtec/senderoEsculturas/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-tower"></span> Escultura1</a>
-            <a href="/GuiArtec/senderoMuseos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-home"></span> Escultura2</a>
-            <a href="/GuiArtec/senderoPuntos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-map-marker"></span> Escultura3</a>
-          </div>          
-       </div>
-      <button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-road"></span> Esculturas</button>
-        <div id="demo" class="collapse">
-          <div class="btn-group-vertical">
-            <a href="/GuiArtec/senderoEsculturas/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-tower"></span> Escultura1</a>
-            <a href="/GuiArtec/senderoMuseos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-home"></span> Escultura2</a>
-            <a href="/GuiArtec/senderoPuntos/index.html" class="btn btn-default btn-lg monserrat"><span class="glyphicon glyphicon-map-marker"></span> Escultura3</a>
-          </div>          
-       </div>    
-        <br><a href="/GuiArtec/busqueda/index.html" class="btn btn-default2 btn-lg monserrat"><span class="glyphicon glyphicon-search"></span> Búsqueda</a></br>
-      </div>
-    </div>  
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">          
+          <li class="josefin"><a href="../default/index-html">Inicio</a></li>
+          <li  class="dropdown">
+            <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Recorridos Dinamicos<span class="caret"></span></a>
+              <ul class="dropdown-menu monserrat">
+                <li><a href="/GuiArtec/senderoEsculturas/index.html"><span class="glyphicon glyphicon-tower"></span> Senderos-Esculturas</a></li>
+                <li><a href="/GuiArtec/senderoMuseos/index.html"><span class="glyphicon glyphicon-home"></span> Museos</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Lugar de Interes</a></li>
+             </ul>            
+      </li>
+      <li class="dropdown">
+            <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Acerca de<span class="caret"></span></a>
+            <ul class="dropdown-menu monserrat">              
+              <li><a href="/GuiArtec/appsvinc/index.html">Apps Vinculada</a></li>
+              <li><a href="#">¿Quines Somos?</a></li>
+            </ul>           
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<!--Aca estan los form y las tablas -->
 
+<h1>BUSQUEDA</h1>
 
-  <footer>
+  <p> </p>
+  <form>
+    BUSCAR EN TODAS LAS TABLAS <input id="searchTerm" type="text" onkeyup="doSearch0()" />
+  </form>
+
+  <p> </p>
+  <form>
+    Buscar Museo <input id="searchMuseum" type="text" onkeyup="doSearch()" />
+  </form>
+  <!--Falta alargar un poco el boton que se despliega.  -->
+  <p><button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#lista1"><span class="glyphicon glyphicon-road"></span> Museos</button></p>
+    <div id="lista1" class="collapse"> 
+      <p>
+        <table id="museums" class="table table-bordered table-hover table-condensed">
+          <th>id</th><th>Nombre</th><th>Direccion</th>
+          </tr>
+          {{for cam in registros:}}
+          <tr>
+            <td>{{=cam.id}}</td><td>{{=cam.name}}</td><td>{{=cam.direccion}}</td>
+          </tr>
+          {{pass}}
+          
+        </table>
+      </p>
+    </div>
+
+  <p> </p>   
+  <form>
+    Buscar Punto de Interes <input id="searchPoint" type="text" onkeyup="doSearch1()" />
+  </form>
+  <!--Este boton tambien hay que alargar-->
+   <p><button type="button" class="btn btn-default2 btn-lg monserrat" data-toggle="collapse" data-target="#lista2"><span class="glyphicon glyphicon-road"></span> Puntos de Interes</button></p>
+    <div id="lista2" class="collapse">    
+
+        <table id="points" class="table table-bordered table-hover table-condensed">
+          <th>id</th><th>Nombre</th><th>Direccion</th>
+          </tr>
+          {{for punto in puntos:}}
+          <tr>
+            <td>{{=punto.id}}</td><td>{{=punto.nombre}}</td><td>{{=punto.direccion}}</td>
+          </tr>
+          {{pass}}
+          
+        </table>
+
+    </div>
+  <!--Aca terminan las tablas. Abajo esta el footer-->
+
+<footer>
     <div class="quitar-float text-center">
         <ul class="no-lista">
-          <li class="col-md-12 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
+          <li class="col-md-6 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
+          <li class="col-md-6 inline-block monserrat" style="margin-right:-20px;font-style:italic"><p class="text-muted"><img src="/GuiArtec/static/imgs/icons/iconoLG.png" width="22" height="40"> LearningGroup® 2016</p></li>
         </ul>
     </div>
-  </footer>
-
-
+ </footer>
 
 
 </body>
 </html>
-<!--ivory-->
-<!--{{=BEAUTIFY(response._vars)}}-->
+
+
+

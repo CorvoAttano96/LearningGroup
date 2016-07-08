@@ -14,7 +14,7 @@ def esculturasMarkers():
         'title': row.nombre,
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True
-        #'infowindow':{'content':"<p>HTML Content</p>"}
+        #'infowindow':{'content':"/../..row.image</p>"}
         }
         places.append(place)
     return response.json(places)

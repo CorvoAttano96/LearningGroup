@@ -249,7 +249,7 @@
                         //Oculto los marcadores fuera del rango 2
                         for(i=0; i< data.length ; i++){
                           var check2 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
-                          if (check2 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                          if (check2) {
                             marcadores[i].setVisible(true)
                           }; 
                         }
@@ -561,7 +561,7 @@ $('#recorrido1').click(function(){
                         //Oculto los marcadores fuera del rango 2
                         for(i=0; i< data.length ; i++){
                           var check2 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
-                          if (check2 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                          if (check2) {
                             marcadores[i].setVisible(true)
                           }; 
                         }
@@ -852,7 +852,7 @@ $('#recorrido1').click(function(){
                         //Oculto los marcadores fuera del rango 2
                         for(i=0; i< data.length ; i++){
                           var check2 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
-                          if (check2 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                          if (check2) {
                             marcadores[i].setVisible(true)
                           }; 
                         }
