@@ -109,6 +109,12 @@
     GMaps.geolocate({
         success: function(position) {
           map.setCenter(position.coords.latitude, position.coords.longitude);
+          map.addMarker({
+          lat: position.coords.latitude,
+          lng:position.coords.longitude,
+          title:"Tu estas aqui",
+          /*icon: "url",*/
+          });
           $.getJSON('{{=URL('puntosinteres','puntosMarkers')}}',
           function(data){
             var len = data.length;
@@ -133,7 +139,7 @@
                     map.drawRoute({
                           origin: [position.coords.latitude, position.coords.longitude],
                           destination: [e.position.lat(), e.position.lng()],
-                          travelMode: 'walking',
+                          travelMode: 'driving',
                           strokeColor: '#3f62d7',
                           strokeOpacity: 0.6,
                           strokeWeight: 6

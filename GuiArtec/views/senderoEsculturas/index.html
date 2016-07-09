@@ -184,27 +184,14 @@
                     map.removePolylines();
                     $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
                     function(data){
-                        
+                        /*var waypoint =[];
+                        var location=[tulat,(tulng-e.position.lng()+tulng)];
+                        var stopover=true;
+                        waypoint.push(location,stopover);*/
                         for(i=0; i< data.length ; i++) {
                               marcadores[i].setVisible(false)
                         }
 
-                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
-                          function(data){
-                          map.drawRoute({ //Dibuja la ruta
-                            //var location: 
-                            origin: [position.coords.latitude, position.coords.longitude],
-                            destination: [e.position.lat(), e.position.lng()],
-                            travelMode: 'walking',
-                            strokeColor: '#3f62d7',
-                            strokeOpacity: 0.6,
-                            strokeWeight: 6,
-                            //bounds: path,
-                            //waypoints: data,
-                          }); 
-                        });
-                        
-                        //Dibujo poligonos para usarlos como limites de geofence.
                         polygon = map.drawPolygon({
                           paths: path,
                           strokeColor: 'transparent',
@@ -213,6 +200,48 @@
                           fillColor: 'transparent',
                           fillOpacity: 0.6
                         });
+
+                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
+                          function(data){ 
+                          /*for(i=0; i< data.length ; i++) {
+                              if (map.checkGeofence(data[i].location.lat,data[i].location.lng,polygon)){
+                                var way = data[i];
+                                waypoint.push(way);
+                              }
+                          };
+
+                          for(i=0; i< data.length ; i++) {
+                              var lati=waypoint[i].location.lat;
+                              var lngi=waypoint[i].location.lng;
+                              circle = map.drawCircle({
+                                lat: lati,
+                                lng: lngi,
+                                radius: 200,
+                                strokeColor: '#3f62d7',
+                                strokeOpacity: 1,
+                                strokeWeight: 3,
+                                fillColor: 'transparent'
+                              });
+
+                              for(j=0; j< data.length ; j++) {
+                                if (map.checkGeofence(data[j].lat,data[j].lng,circle)){
+                                  marcadores[j].setVisible(true)
+                                }
+                              }
+                          }*/
+
+                          map.drawRoute({ //Dibuja la ruta
+                            origin: [position.coords.latitude, position.coords.longitude],
+                            destination: [e.position.lat(), e.position.lng()],
+                            travelMode: 'walking',
+                            //waypoints: waypoint,
+                            strokeColor: '#3f62d7',
+                            strokeOpacity: 0.6,
+                            strokeWeight: 6
+                          }); 
+                        });
+                        
+                        //Dibujo poligonos para usarlos como limites de geofence.
 
                         circle = map.drawCircle({
                           lat: tulat,

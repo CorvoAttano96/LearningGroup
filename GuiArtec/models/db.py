@@ -141,6 +141,7 @@ db.define_table('scul',
             Field('direccion','text'),
             Field('lat','float'),
             Field('lng','float'),
+                
             migrate='scul.table')
 
 db.define_table('caminoe',
@@ -148,6 +149,7 @@ db.define_table('caminoe',
             Field('direccion','text'),
             Field('lat','double'),
             Field('lng','double'),
+            Field ('file','upload'),
             migrate='caminoe.table')
 
 db.define_table('museums',
@@ -155,6 +157,7 @@ db.define_table('museums',
             Field('direccion','text'),
             Field('lat','float'),
             Field('lng','float'),
+            Field ('file','upload'),
             migrate='museums.table')
 
 db.define_table('puntosint',
@@ -162,6 +165,7 @@ db.define_table('puntosint',
             Field('direccion','text'),
             Field('lat','float'),
             Field('lng','float'),
+            Field ('file','upload'),
             migrate='puntosint.table')
 
 db.define_table('camino',
