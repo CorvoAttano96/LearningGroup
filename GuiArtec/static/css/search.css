@@ -1,12 +1,15 @@
 body{
-	background-image: url("../imgs/back8.jpg");
+	background: url("../imgs/back8.jpg") no-repeat center center fixed;
 	/*Ajusta mi background a la webpage*/
-	background-size: 100%;
+	/*background-repeat:no-repeat;*/	
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+	background-size:cover;
+	/*background-position:;
+	Me Scrollea la imagen al desplazarze o en su defecto fixed, fijo
+	background-attachment:scroll;*/
 	color:white;
-	background-repeat:repeat-y;
-	background-position:0 0;
-	/*Me Scrollea la imagen al desplazarze o en su defecto fixed, fijo*/
-	background-attachment:fixed;
 }
 nav{
 	opacity: 0.85;
@@ -50,7 +53,7 @@ nav{
 	color:silver;
 }
 
-.padding-conten{
+.espacio-conten{
 	margin-top: 25px;
 }
 .ancho{
@@ -130,4 +133,10 @@ a{
   font-size: 20px;
   line-height: 1.65;
   border-radius: 30px;
+}
+/* Transparencia de Contenido a la tabla*/
+.conten-list{
+	background-color:#088da5;
+	opacity: 0.7;
+	color: black;
 }
