@@ -158,7 +158,7 @@
           var tulng=position.coords.longitude;
           var marcadores = [];
 
-          $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
+          $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers1')}}',
           function(data){
             var len = data.length;
             var bounds = [];
@@ -167,7 +167,7 @@
                 var lat = data[i].lat;
                 var lng = data[i].lng;
                 var title = data[i].title;
-                //var info = data[i].infoWindow;
+                var info = data[i].infoWindow;
                 var ico = '/GuiArtec/static/imgs/sculture.png';
                 var latlng = new google.maps.LatLng(lat, lng);
                 bounds.push(latlng);
@@ -175,14 +175,14 @@
                   lat: lat,
                   lng: lng,
                   title:title,
-                  //infoWindow : info,
+                  infoWindow : info,
                   icon:ico,
                   visible:true,
                   //Lo que se ejecuta al clikear el marcador
                   click: function(e){  
                     path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]];                
                     map.removePolylines();
-                    $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
+                    $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers1')}}',
                     function(data){
                         /*var waypoint =[];
                         var location=[tulat,(tulng-e.position.lng()+tulng)];
@@ -201,7 +201,7 @@
                           fillOpacity: 0.6
                         });
 
-                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
+                        $.getJSON('{{=URL('senderoEsculturas','crearSenderoEsculturas1')}}',
                           function(data){ 
                           /*for(i=0; i< data.length ; i++) {
                               if (map.checkGeofence(data[i].location.lat,data[i].location.lng,polygon)){
@@ -507,7 +507,7 @@ $('#recorrido1').click(function(){
                 var lat = data[i].lat;
                 var lng = data[i].lng;
                 var title = data[i].title;
-                //var info = data[i].infoWindow;
+                var info = data[i].infoWindow;
                 var ico = '/GuiArtec/static/imgs/sculture.png';
                 var latlng = new google.maps.LatLng(lat, lng);
                 bounds.push(latlng);
@@ -515,14 +515,14 @@ $('#recorrido1').click(function(){
                   lat: lat,
                   lng: lng,
                   title:title,
-                  //infoWindow : info,
+                  infoWindow : info,
                   icon:ico,
                   visible:true,
                   //Lo que se ejecuta al clikear el marcador
                   click: function(e){  
                     path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]];                
                     map.removePolylines();
-                    $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
+                    $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers1')}}',
                     function(data){
                         
 
@@ -530,7 +530,7 @@ $('#recorrido1').click(function(){
                               marcadores[i].setVisible(false)
                         }
 
-                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas1')}}',
+                        $.getJSON('{{=URL('senderoEsculturas','crearSenderoEsculturas1')}}',
                           function(data){
                           map.drawRoute({ //Dibuja la ruta
                             //var location: 
@@ -790,7 +790,7 @@ $('#recorrido1').click(function(){
           var tulng=position.coords.longitude;
           var marcadores = [];
 
-          $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers2')}}',
+          $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers2')}}',
           function(data){
             var len = data.length;
             var bounds = [];
@@ -799,7 +799,7 @@ $('#recorrido1').click(function(){
                 var lat = data[i].lat;
                 var lng = data[i].lng;
                 var title = data[i].title;
-                //var info = data[i].infoWindow;
+                var info = data[i].infoWindow;
                 var ico = '/GuiArtec/static/imgs/sculture.png';
                 var latlng = new google.maps.LatLng(lat, lng);
                 bounds.push(latlng);
@@ -807,7 +807,7 @@ $('#recorrido1').click(function(){
                   lat: lat,
                   lng: lng,
                   title:title,
-                  //infoWindow : info,
+                  infoWindow : info,
                   icon:ico,
                   visible:true,
                   //Lo que se ejecuta al clikear el marcador
@@ -821,7 +821,7 @@ $('#recorrido1').click(function(){
                               marcadores[i].setVisible(false)
                         }
 
-                        $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas2')}}',
+                        $.getJSON('{{=URL('senderoEsculturas','crearSenderoEsculturas2')}}',
                           function(data){
                           map.drawRoute({ //Dibuja la ruta
                             //var location: 

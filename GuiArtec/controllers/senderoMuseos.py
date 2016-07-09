@@ -1,4 +1,19 @@
 # -*- coding: utf-8 -*-
-# intente algo como
+from gluon.serializers import loads_json #json serializa codigo (embebe o codifica)
+
 def index():
     return dict()
+
+
+def museosMarkers():
+    mases = []
+    rows = db().select(db.museums.ALL,orderby=db.museums.id)
+    for row in rows:
+        mase = {
+        'lat': row.lat,
+        'lng': row.lng,
+        'title': row.name,
+        'infoWindow': { 'content': "<h4>"+row.name+"</h4><p>Direccion: "+row.direccion+"</p>"},
+        }
+        mases.append(mase)
+    return response.json(mases)

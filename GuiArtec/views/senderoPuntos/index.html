@@ -115,7 +115,7 @@
           title:"Tu estas aqui",
           /*icon: "url",*/
           });
-          $.getJSON('{{=URL('puntosinteres','puntosMarkers')}}',
+          $.getJSON('{{=URL('senderoPuntos','puntosMarkers')}}',
           function(data){
             var len = data.length;
             var bounds = [];
@@ -225,7 +225,7 @@
                 map.addMarkers(data)
               });*/
 
-              $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas')}}',
+              $.getJSON('{{=URL('senderoEsculturas','crearSenderoEsculturas')}}',
               function(data){
                   map.drawRoute({
                   origin: [-27.4382536,-58.9809245], //Coordenadas del Domo del Centenario

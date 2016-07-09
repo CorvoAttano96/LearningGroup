@@ -112,7 +112,7 @@
         }
         if(found)
         {
-          tableReg.rows[i].style.display = 'block';
+          tableReg.rows[i].style.display = '';
         } else {
           // si no ha encontrado ninguna coincidencia, esconde la
           // fila de la tabla
@@ -225,7 +225,7 @@
               </tr>
               {{for cam in registros:}}
               <tr class="josefin chica">
-                <td>{{=cam.id}}</td><td>{{=cam.name}}</td><td>{{=cam.direccion}}</td>
+                <td>{{=cam.id}}</td><td>{{=cam.name}}</td><td><a href="/GuiarTec/senderoMuseos/index.html">{{=cam.direccion}}</a></td>
               </tr>
               {{pass}}              
             </table>
@@ -249,7 +249,7 @@
                 </tr>
                 {{for punto in puntos:}}
                 <tr class="josefin chica">
-                  <td>{{=punto.id}}</td><td>{{=punto.nombre}}</td><td>{{=punto.direccion}}</td>
+                  <td>{{=punto.id}}</td><td>{{=punto.nombre}}</td><td><a href="/GuiarTec/senderoPuntos/index.html">{{=punto.direccion}}</a></td>
                 </tr>
                 {{pass}}
                 
