@@ -134,6 +134,12 @@ a{
   line-height: 1.65;
   border-radius: 30px;
 }
+.padding-btn{
+	padding-top: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+}
 /* Transparencia de Contenido a la tabla*/
 .conten-list{
 	background-color:#088da5;

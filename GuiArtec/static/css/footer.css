@@ -26,6 +26,11 @@ footer {
     opacity: 0.9;
 }
 
+/* Utilizo para toppear el titulo de Busqueda y otros*/
 .container-top{
-    margin-top: 2em;
+    margin-top:2em; 
+}
+/* Utilizo para toppear titulos Sendero del navbar, sino se pega*/
+.container-sendero{
+    margin-top: 50px;
 }
