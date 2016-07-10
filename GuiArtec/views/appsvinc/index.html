@@ -18,7 +18,8 @@
   <script src="/GuiArtec/static/js/bootstrap.min.js" type="text/javascript"></script>
   <title>GuiarTec</title>
 </head>
- <nav class="navbar navbar-inverse">
+<body>
+ <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -33,54 +34,52 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">          
-         <li class="josefin"><a href="../default/index-html">Inicio</a></li>
+         <li class="josefin"><a href="../default/index.html">Inicio</a></li>
           <li  class="dropdown">
             <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Recorridos Dinamicos<span class="caret"></span></a>
               <ul class="dropdown-menu monserrat">
                 <li><a href="/GuiArtec/senderoEsculturas/index.html"><span class="glyphicon glyphicon-tower"></span> Senderos-Esculturas</a></li>
                 <li><a href="/GuiArtec/senderoPuntos/index.html"><span class="glyphicon glyphicon-map-marker"></span> Lugares de Interes</a></li>
-                <li class="divider"></li>
-                <li><a href="../GuiArtec/busqueda/index.html"><span class="glyphicon glyphicon-filter"></span> Búsqueda</a></li>
+                <li><a href="/GuiArtec/busqueda/index.html"><span class="glyphicon glyphicon-filter"></span> Búsqueda</a></li>
               </ul>           
       </li>
       <li class="dropdown">
             <a class="dropdown-toggle josefin" data-toggle="dropdown" href="#">Acerca de<span class="caret"></span></a>
             <ul class="dropdown-menu monserrat">              
-              <li><a href="#">¿Quienes Somos?</a></li>
+              <li><a href="/GuiArtec/infoLG/index.html">¿Quienes Somos?</a></li>
             </ul>           
           </li>
       </ul>
     </div>
   </div>
 </nav>
- <div class="text-center animated fadeIn">
+ <div class="text-center animated fadeIn container-sendero">
     <div class="col-md-6 center-block quitar-float">
       <p><h1 class="monserrat semi-chica">Aplicaciones Vinculadas</h1></p>
       <div class="container-fluid chica justificar" id="conten-contenido">         
-          <p class="lato chica animated bounceInLeft">Forman parte del <strong> Informatorio "Incubadora De Ideas" </strong> las siguientes Aplicaciones</p>      
+          <p class="lato chica animated bounceInLeft text-center">Forman parte del <strong> Informatorio "Incubadora De Ideas" </strong> las siguientes Aplicaciones:</p>      
       </div>
 
     </div>
   </div>
 <center>
-<div class="container-vinc" id="conten-contenido">
-         <div class="w3-content" style="max-width:1000px">
-              <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/escultor.png" style="width:90%"></a>
-              <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/Chuwal.png" style="width:90%"></a>
-              <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/brainchaco.png" style="width:90%"></a>
-              <a href="https://taringa.net"><a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/Informarq.png" style="width:90%"></a>
-              <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/BienAll.png" style="width:90%"></a>
-         </div>
-       
-        <div class="w3-center">
-          <div class="w3-section">
-            <button class="btn btn-default2 btn-lg monserrat" onclick="plusDivs(-1)"style="color:#000000">Prev</button>
-            <button class="btn btn-default2 btn-lg monserrat" onclick="plusDivs(1)" style="color:#000000">Next</button>
-          </div>
-      </div>
-</div>
-</div>
-</center>    
+  <div class="col-md-12 inline-block container-vinc" id="conten-contenido">
+           <div class="w3-content" style="max-width:1000px">
+                <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/escultor.png" style="width:90%"></a>
+                <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/Chuwal.png" style="width:90%"></a>
+                <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/brainchaco.png" style="width:90%"></a>
+                <a href="https://taringa.net"><a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/Informarq.png" style="width:90%"></a>
+                <a href="https://taringa.net"><img class="mySlides" src="/GuiArtec/static/imgs/appvinc/BienAll.png" style="width:90%"></a>
+           </div>
+         
+          <div class="w3-center">
+            <div class="w3-section">
+              <button class="btn btn-default2 btn-lg monserrat" onclick="plusDivs(-1)" style="background-color:orange;color:#000">Prev</button>
+              <button class="btn btn-default2 btn-lg monserrat" onclick="plusDivs(1)" style="background-color:orange;color:#000000">Next</button>
+            </div>
+        </div>
+  </div>      
+</center>
 
 <script>
 var slideIndex = 1;
@@ -120,5 +119,5 @@ function showDivs(n) {
         </ul>
       </div>
   </footer>
-
-{{=BEAUTIFY(response._vars)}}
+</body>
+</html>  
