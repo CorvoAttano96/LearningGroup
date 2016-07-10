@@ -11,7 +11,7 @@ def puntosMarkers():
         'lat': row.lat,
         'lng': row.lng,
         'title': row.nombre,
-         'infoWindow': { 'content': "<h4>"+row.nombre+"</h4><p>Direccion: "+row.direccion+"</p>"},
+        'infoWindow': { 'content': "<h4>" + row.nombre +"</h4><p>Direccion: "+row.direccion+"</p><img  heigth='150px' width = '150px' src='"+URL('download',args=row.file)+"'/>"},
         }
         places.append(place)
     return response.json(places)

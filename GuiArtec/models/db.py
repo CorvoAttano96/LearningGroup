@@ -141,7 +141,6 @@ db.define_table('scul',
             Field('direccion','text'),
             Field('lat','float'),
             Field('lng','float'),
-                
             migrate='scul.table')
 
 db.define_table('caminoe',

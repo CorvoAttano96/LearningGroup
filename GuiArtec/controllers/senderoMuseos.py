@@ -13,7 +13,7 @@ def museosMarkers():
         'lat': row.lat,
         'lng': row.lng,
         'title': row.name,
-        'infoWindow': { 'content': "<h4>"+row.name+"</h4><p>Direccion: "+row.direccion+"</p>"},
+        'infoWindow': { 'content': "<h4>" + row.name +"</h4><p>Direccion: "+row.direccion+"</p><img  heigth='150px' width = '150px' src='"+URL('download',args=row.file)+"'/>"},
         }
         mases.append(mase)
     return response.json(mases)

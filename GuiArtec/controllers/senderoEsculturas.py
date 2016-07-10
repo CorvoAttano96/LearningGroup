@@ -31,7 +31,7 @@ def esculturasMarkers1():
         'type': "Escultura",
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True,
-        'infoWindow': { 'content': "<h3>Nombre</h3><p>Direccion: "+row.direccion+"</p>"},
+        'infoWindow': { 'content': "<h3>Nombre</h3><p>Direccion: "+row.direccion+"</p><img width ='180px' src='"+URL('download',args=row.file)+"'/>"},
         }
         places.append(place)
     return response.json(places)
@@ -47,7 +47,8 @@ def esculturasMarkers2():
         #'type': "Escultura",
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True,
-        'infoWindow': { 'content': "<h3>" + row.nombre +"</h3><p>Direccion: "+row.direccion+"</p>"},
+        'file': row.file,
+        'infoWindow': { 'content': "<h4>" + row.nombre +"</h4><p>Direccion: "+row.direccion+"</p><img  heigth='150px' width = '150px' src='"+URL('download',args=row.file)+"'/>"},
         }
         places.append(place)
     return response.json(places)    
@@ -77,3 +78,6 @@ def crearSenderoEsculturas2():
         }
     paths.append(path)
     return response.json(paths)
+
+def download():
+    return response.download(request, db)

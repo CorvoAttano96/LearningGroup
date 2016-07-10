@@ -65,32 +65,26 @@
     <div class="container">
         <div class="row">           
           <div class="col-md-12">
-              <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-              <script src="{{=URL('static','js/gmaps.js')}}"></script>
+            <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
+            <!-- Clave de google maps--> 
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrjUtZarM2q5OueCbjDpIv9Ii9bXWGO3I"type="text/javascript"></script>
+            <script src="{{=URL('static','js/gmaps.js')}}"></script>
+            <!--<script src="gmaps.core.js"></script> -->
+            <!--<script src="gmaps.geofences.js"></script> -->
               <div class=" responsive-map" id="map"></div>
           </div>
         </div> 
     </div> 
         
-        <!-- <form method="post" id="geocoding_form">
+        <!--<form method="post" id="geocoding_form">
           <label for="address">Address:</label>
           <div class="input">
             <input type="text" id="address" name="address">
             <input type="submit" class="btn" value="Search">
           </div>
-        </form>
+        </form>-->
          <script src="gmaps.core.js"></script>
          <script src="gmaps.geofences.js"></script> 
-        
-        <div class="animated zoomIn center-block" id="map" style="height:650px;width:850px;margin:15px 15px 15px 15px">
-          <form>
-            <input type="checkbox" class="marker" value="na">NA<br>
-            <input type="checkbox" class="marker" value="1pm">1pm<br>
-            <input type="checkbox" class="marker" value="aa">AA
-          </form>
-        </div>-->
-
-
 
 <div class="container">
  
@@ -124,7 +118,7 @@
       </div>
 </footer>
 
-  <script>
+<script>
 
   /*Creo el mapa con Gmaps*/
   $(document).ready(function(){
@@ -191,10 +185,6 @@
                     map.removePolylines();
                     $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers1')}}',
                     function(data){
-                        /*var waypoint =[];
-                        var location=[tulat,(tulng-e.position.lng()+tulng)];
-                        var stopover=true;
-                        waypoint.push(location,stopover);*/
                         for(i=0; i< data.length ; i++) {
                               marcadores[i].setVisible(false)
                         }
@@ -208,48 +198,56 @@
                           fillOpacity: 0.6
                         });
 
+                        var waypoint = [];
                         $.getJSON('{{=URL('senderoEsculturas','crearSenderoEsculturas1')}}',
-                          function(data){ 
-                          /*for(i=0; i< data.length ; i++) {
+                          function(data){
+                          
+                          for(i=0; i< data.length ; i++) {
                               if (map.checkGeofence(data[i].location.lat,data[i].location.lng,polygon)){
                                 var way = data[i];
                                 waypoint.push(way);
                               }
                           };
+                        });
 
-                          for(i=0; i< data.length ; i++) {
-                              var lati=waypoint[i].location.lat;
-                              var lngi=waypoint[i].location.lng;
-                              circle = map.drawCircle({
-                                lat: lati,
-                                lng: lngi,
-                                radius: 200,
-                                strokeColor: '#3f62d7',
-                                strokeOpacity: 1,
-                                strokeWeight: 3,
-                                fillColor: 'transparent'
-                              });
 
-                              for(j=0; j< data.length ; j++) {
-                                if (map.checkGeofence(data[j].lat,data[j].lng,circle)){
-                                  marcadores[j].setVisible(true)
+                        var route = map.drawRoute({ //Dibuja la ruta
+                          origin: [position.coords.latitude, position.coords.longitude],
+                          destination: [e.position.lat(), e.position.lng()],
+                          travelMode: 'walking',
+                          waypoints: waypoint,
+                          strokeColor: '#3f62d7',
+                          strokeOpacity: 0.6,
+                          strokeWeight: 6,
+                          callback: route => {
+                            var camino = route.legs[0];
+                            for (var k=0;k<route.legs[0].steps.length;k++){
+                            camino = route.legs[0].steps[k].path;
+                              for (var c=0;c<camino.length;c++){
+                                //Rangos cero,creados a lo largo de la ruta
+                                circle = map.drawCircle({
+                                  lat: camino[c].lat(),
+                                  lng: camino[c].lng(),
+                                  radius: 150,
+                                  strokeColor: 'transparent',
+                                  strokeOpacity: 1,
+                                  strokeWeight: 3,
+                                  fillColor: 'transparent'
+                                });
+                                for(i=0; i< data.length ; i++){
+                                  var check0 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
+                                  if (check0 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
+                                    marcadores[i].setVisible(true)
+                                  }    
                                 }
                               }
-                          }*/
-
-                          map.drawRoute({ //Dibuja la ruta
-                            origin: [position.coords.latitude, position.coords.longitude],
-                            destination: [e.position.lat(), e.position.lng()],
-                            travelMode: 'walking',
-                            //waypoints: waypoint,
-                            strokeColor: '#3f62d7',
-                            strokeOpacity: 0.6,
-                            strokeWeight: 6
-                          }); 
-                        });
+                            }
+                          }
+                        }); 
+                          
                         
-                        //Dibujo poligonos para usarlos como limites de geofence.
-
+                        //Dibujo circulos en el origen y destino para usarlos como limites de geofence.
+                        //Rango 1
                         circle = map.drawCircle({
                           lat: tulat,
                           lng: tulng,
@@ -260,18 +258,15 @@
                           fillColor: 'transparent'
                         });
 
-                        //Oculto los marcadores fuera del rango
+                        //Muestro los marcadores dentro del rango 1
                         for(i=0; i< data.length ; i++){
-                          var check = (map.checkGeofence(data[i].lat,data[i].lng,circle));
-                          var check1 = (map.checkGeofence(data[i].lat,data[i].lng,polygon));
-                          if (check && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
-                            marcadores[i].setVisible(true)
-                          }
+                          var check1 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
                           if (check1 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
                             marcadores[i].setVisible(true)
-                          };     
+                          }    
                         }
 
+                        //Rango 2
                         circle = map.drawCircle({
                           lat: e.position.lat(),
                           lng: e.position.lng(),
@@ -282,7 +277,7 @@
                           fillColor: 'transparent'
                         });
 
-                        //Oculto los marcadores fuera del rango 2
+                        //Muestro los marcadores dentro del rango 2
                         for(i=0; i< data.length ; i++){
                           var check2 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
                           if (check2) {
@@ -291,40 +286,7 @@
                         }
 
 
-                        circle = map.drawCircle({
-                          lat: e.position.lat(),
-                          lng: tulng,
-                          radius: 150,
-                          strokeColor: 'transparent',
-                          strokeOpacity: 1,
-                          strokeWeight: 3,
-                          fillColor: 'transparent'
-                        });
-
-                        //Oculto los marcadores fuera del rango 2
                         for(i=0; i< data.length ; i++){
-                          var check3 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
-                          if (check3 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
-                            marcadores[i].setVisible(true)
-                          }; 
-                        }
-
-                        circle = map.drawCircle({
-                          lat: tulat,
-                          lng: e.position.lng(),
-                          radius: 150,
-                          strokeColor: 'transparent',
-                          strokeOpacity: 1,
-                          strokeWeight: 3,
-                          fillColor: 'transparent'
-                        });
-
-                        //Oculto los marcadores fuera del rango 2
-                        for(i=0; i< data.length ; i++){
-                          var check4 = (map.checkGeofence(data[i].lat,data[i].lng,circle));
-                          if (check4 && data[i].lat != e.position.lat() && data[i].lng != e.position.lng()) {
-                            marcadores[i].setVisible(true)
-                          }
                           if (data[i].lat == e.position.lat() && data[i].lng == e.position.lng()) {
                             marcadores[i].setVisible(true)  
                           }; 
@@ -505,7 +467,7 @@ $('#recorrido1').click(function(){
           var tulng=position.coords.longitude;
           var marcadores = [];
 
-          $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers1')}}',
+          $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers1')}}',
           function(data){
             var len = data.length;
             var bounds = [];
@@ -768,7 +730,7 @@ $('#recorrido1').click(function(){
     });
 
     //Inserto una busqueda de lugares
-    /*GMaps.geocode({
+    GMaps.geocode({
       address: $('#address').val(),
       callback: function(results, status) {
         if (status == 'OK') {
@@ -780,7 +742,7 @@ $('#recorrido1').click(function(){
           });
         }
       }
-    });*/
+    });
 
 
     //Localizo la posicion del usuario y centro el mapa en dicha posicion. Dentro de esta funcion se desarrolla casi toda la funcionalidad del mapa.
@@ -821,7 +783,7 @@ $('#recorrido1').click(function(){
                   click: function(e){  
                     path = [[tulat, tulng],[tulat,e.position.lng()],[e.position.lat(), e.position.lng()],[e.position.lat(), tulng]];                
                     map.removePolylines();
-                    $.getJSON('{{=URL('mapaEsculturas','esculturasMarkers2')}}',
+                    $.getJSON('{{=URL('senderoEsculturas','esculturasMarkers2')}}',
                     function(data){
                         
                         for(i=0; i< data.length ; i++) {
