@@ -168,6 +168,7 @@ db.define_table('puntosint',
             migrate='puntosint.table')
 
 db.define_table('camino',
+            Field('nombre','text'),
             Field('direccion','text'),
             Field('lat','float'),
             Field('lng','float'),
