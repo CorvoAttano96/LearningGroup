@@ -4,21 +4,6 @@ from gluon.serializers import loads_json #json serializa codigo (embebe o codifi
 def index():
     return dict()
 
-def esculturasMarkers():
-    places = []
-    rows = db(db.esculturag.id != None).select()
-    for row in rows:
-        place = {
-        'lat': row.lat,
-        'lng': row.lng,
-        'title': row.nombre,
-        'location' : {'lat':row.lat,'lng': row.lng},
-        'stopover' : True
-        #'infoWindow': { 'content': "<h1>" + row.nombre +"</h1>"+"<p>Direccion: "+row.direccion+"</p><p>"+row.descripcion+"</p>" },
-        }
-        places.append(place)
-    return response.json(places)
-
 
 def esculturasMarkers1():
     places = []
@@ -27,11 +12,11 @@ def esculturasMarkers1():
         place = {
         'lat': row.lat,
         'lng': row.lng,
-        'title': "Nombre y foto",
+        'title': row.nombre,
         'type': "Escultura",
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True,
-        'infoWindow': { 'content': "<h3>Nombre</h3><p>Direccion: "+row.direccion+"</p><img width ='180px' src='"+URL('download',args=row.file)+"'/>"},
+        'infoWindow': {'content': "<h4 style='color:black;text-align:center'>"+row.nombre+"</h4><p style='color:black;text-align:center'>Direccion: "+row.direccion+"</p><img width ='135px' src='"+URL('download',args=row.file)+"'/>"},
         }
         places.append(place)
     return response.json(places)
@@ -48,7 +33,7 @@ def esculturasMarkers2():
         'location' : {'lat':row.lat,'lng': row.lng},
         'stopover' : True,
         'file': row.file,
-        'infoWindow': { 'content': "<h4>" + row.nombre +"</h4><p>Direccion: "+row.direccion+"</p><img  heigth='150px' width = '150px' src='"+URL('download',args=row.file)+"'/>"},
+        'infoWindow': { 'content': "<h4 style='color:black;text-align:center'>"+row.nombre+"</h4><p style='color:black;text-align:center'>Direccion: "+row.direccion+"</p><img width ='135px' src='"+URL('download',args=row.file)+"'/>"},
         }
         places.append(place)
     return response.json(places)    

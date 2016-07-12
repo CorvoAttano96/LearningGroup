@@ -66,7 +66,6 @@
             <li>Chalet Perrando</li>
             <li>Paseo Costanero</li>
             <li>Casa de las Culturas</li>
-            <li>El Carpo Bar</li>
             <li>Peña Martin Fierro</li>
             <li>Guido Miranda</li>
             <li>Centro Cultural La Flota</li>
@@ -139,7 +138,6 @@
                   icon:ico,
                   click: function(e){
                     map.removePolylines();
-                    /*alert(this.position);*/
                     map.drawRoute({
                           origin: [position.coords.latitude, position.coords.longitude],
                           destination: [e.position.lat(), e.position.lng()],
@@ -167,93 +165,6 @@
         }*/
       });
 
-
-    /*$.getJSON('{{=URL('mapaEsculturas','esculturasMarkers')}}',
-      function(data){
-        var len = data.length;
-        for(i=0; i< len ; i++){
-        var lat = data[i].lat;
-        var lng = data[i].lng;
-        var title = data[i].title;
-        var info = data[i].infoWindow;
-        var ico = data[i].icon;
-            map.addMarker({
-              lat: lat,
-              lng: lng,
-              title:title,
-              infoWindow : info,
-              icon:ico,
-              click: function(e){
-                map.removePolylines();
-                alert(this.position);
-                $.getJSON('{{=URL('mapaEsculturas','crearSenderoEsculturas')}}',
-                function(data){
-                    map.drawRoute({
-                      origin: [-27.438003, -58.980513],
-                      destination: [e.position.lat(), e.position.lng()],
-                      waypoints:data,
-                      travelMode: 'walking',
-                      strokeColor: '#3f62d7',
-                      strokeOpacity: 0.6,
-                      strokeWeight: 6
-                    });
-                })
-              }
-            });
-        }
-      });*/
-
-      map.setContextMenu({
-          control: 'map',
-          options: [{
-            title: 'Add marker',
-            name: 'add_marker',
-            action: function(e) {
-              this.addMarker({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-                title: 'Tu marcador',
-                click: function(e) {
-                /*alert('You clicked in this marker');*/
-              }
-              });
-            }
-          }, {
-            title: 'Crear Ruta',
-            name: 'crear_ruta',
-            action: function(e) {
-              this.cleanRoute();
-              /*this.removeMarkers();*/
-              /*$.getJSON('{{=URL('mapaEsculturas','esculturasMarkers')}}',
-              function(data){
-                map.addMarkers(data)
-              });*/
-
-              $.getJSON('{{=URL('senderoEsculturas','crearSenderoEsculturas')}}',
-              function(data){
-                  map.drawRoute({
-                  origin: [-27.4382536,-58.9809245], //Coordenadas del Domo del Centenario
-                  destination: [ e.latLng.lat(), e.latLng.lng()],
-                  waypoints:data,
-                  travelMode: 'walking',
-                  strokeColor: '#5ECEFF',
-                  strokeOpacity: 0.6,
-                  strokeWeight: 6
-                  });
-                });
-
-             this.addMarker({
-                lat: e.latLng.lat(),
-                lng: e.latLng.lng(),
-                title: 'New marker',
-                click: function(e) {
-                alert('You clicked in this marker');
-                }
-              });
-             }
-            }
-          ]
-     });
 
   });
   </script>
