@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Case</title>
+  <title>Búsqueda</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><!--Aca importo la hojas de estilo de Bootstrap-->
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/GuiArtec/static/css/search.css"><!-- Aca importo la hoja de estilos que utilizo en view Busqueda -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> <!--Aca importo el js de JQuery me facilita trabajar con librerias JS-->
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> <!-- Aca importo un JS de Bootstrap para obtener func. "dinamismo"--> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"></script>
 
   <!--Aca sigue el script que ejecuta las busquedas!-->
   <script language="javascript">
@@ -204,7 +205,7 @@
     <!--Busqueda General por todas las Categorias-->  
       <form role="form espacio-conten">
         <div class="col-xs-6 inline-block">
-            <label class="gris" for="searchTerm">Buscador GLOBAL</label>
+            <label class="gris chica" for="searchTerm">Buscador GLOBAL</label>
             <input class="form-control" id="searchTerm" type="text input-lg" onkeyup="doSearch0()" style="color:#B45F04"/>
         </div>
       </form>
@@ -212,8 +213,7 @@
     <div class="espacio-conten">
       <form class="form-group" role="form">
         <div class="col-xs-4 inline-block">
-          <label class="gris" for="searchMuseum">Buscar Museo</label>
-          <input class="form-control" id="searchMuseum" type="text" onkeyup="doSearch()" style="color:#B45F04"/><p></p>
+          <label class="gris chica" for="searchMuseum">Museos</label>
           <button type="button" class="btn btn-circle-sm btn-primary" data-toggle="collapse" data-target="#lista1"><span class="glyphicon glyphicon-sort-by-attributes"></span></button>
         </div>
       </form>    
@@ -221,11 +221,19 @@
       <div id="lista1" class="collapse"> 
           <p>
             <table id="museums" class="table table-bordered table-hover table-condensed conten-list">
-              <th class="text-center lato chica">id</th><th class="text-center lato chica">Nombre</th><th class="text-center lato chica">Direccion</th>
+              <th class="text-center lato chica">id</th><th class="text-center lato chica">Nombre</th><th class="text-center lato chica">Direccion</th><th class="text-center">Ir a Mapa</th>
               </tr>
               {{for cam in registros:}}
               <tr class="josefin chica">
-                <td>{{=cam.id}}</td><td>{{=cam.name}}</td><td><a href="/GuiarTec/senderoMuseos/index.html">{{=cam.direccion}}</a></td>
+                <td>{{=cam.id}}</td><td>{{=cam.name}}</td><td>{{=cam.direccion}}</td><td>
+
+            
+                 <form action="{{=URL('senderoMuseos','buscar')}}" method="post">
+                <input type="hidden" name="lng" value="{{=cam.lng}}">
+                <input type="hidden" name="lat" value="{{=cam.lat}}">
+                <button class="btn btn-xs btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </form>
+                </td>
               </tr>
               {{pass}}              
             </table>
@@ -236,8 +244,7 @@
        
         <form class="form-group espacio-conten" role="form">
             <div class="col-xs-4 inline-block">
-              <label class="gris" for="searchPoint">Buscar Punto de Interes</label>
-              <input class="form-control" id="searchPoint" type="text" onkeyup="doSearch1()" style="color:#B45F04" /><p></p>
+              <label class="gris" for="searchPoint">Lugares de Interes</label>              
               <button type="button" class="btn btn-circle-sm btn-primary" data-toggle="collapse" data-target="#lista2"><span class="glyphicon glyphicon-sort-by-attributes"></span></button>
             </div>
         </form>
@@ -245,11 +252,19 @@
           <div id="lista2" class="collapse">    
 
               <table id="points" class="table table-bordered table-hover table-condensed conten-list">
-                <th class="text-center lato chica">id</th><th class="text-center lato chica">Nombre</th><th class="text-center lato chica">Direccion</th>
+                <th class="text-center lato chica">id</th><th class="text-center lato chica">Nombre</th><th class="text-center lato chica">Direccion</th><th class="text-center">Ir a Mapa</th>
                 </tr>
                 {{for punto in puntos:}}
                 <tr class="josefin chica">
-                  <td>{{=punto.id}}</td><td>{{=punto.nombre}}</td><td><a href="/GuiarTec/senderoPuntos/index.html">{{=punto.direccion}}</a></td>
+                  <td>{{=punto.id}}</td><td>{{=punto.nombre}}</td><td>{{=punto.direccion}}</td><td>
+                       <form action="{{=URL('senderoPuntos','buscar')}}" method="post">
+                        <input type="hidden" name="lng" value="{{=punto.lng}}">
+                        <input type="hidden" name="lat" value="{{=punto.lat}}">
+                        <button class="btn btn-xs btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                      </form>
+                  </td>
+
+                  </td>
                 </tr>
                 {{pass}}
                 

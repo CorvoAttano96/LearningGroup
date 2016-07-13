@@ -2,7 +2,12 @@
 from gluon.serializers import loads_json #json serializa codigo (embebe o codifica)
 
 def index():
-    return dict()
+    return dict(verificador='index')
+
+def buscar():
+    coor = request.post_vars
+    response.view="senderoMuseos/index.html" 
+    return dict(lng=coor.lng, lat=coor.lat, verificador='busqueda')
 
 
 def museosMarkers():

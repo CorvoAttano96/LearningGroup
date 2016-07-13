@@ -1,4 +1,4 @@
-$("#gps").click(function(){
+$("#dos").click(function(){
 map.addListener('click', function(){
         alert("Hola");
       })

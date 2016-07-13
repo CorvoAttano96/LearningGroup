@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 # intente algo como
 def index(): 
-    return dict()
+    return dict(verificador="index")
+
+def buscar():
+    coor = request.post_vars
+    response.view="senderoPuntos/index.html" 
+    return dict(lng=coor.lng, lat=coor.lat, verificador='busqueda')
 
 def puntosMarkers():
     places = []
