@@ -186,3 +186,11 @@ db.define_table('esculturag',
     Field('lat', 'float'),
     Field('lng', 'float'),
     Field('premio', 'text'))
+
+db.define_table('senderopral',
+            Field('nombre','text',requires=IS_NOT_EMPTY()),
+            Field('direccion','text'),
+            Field('lat','double'),
+            Field('lng','double'),
+            Field ('file','upload'),
+            migrate='senderopral.table')
