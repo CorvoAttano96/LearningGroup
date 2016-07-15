@@ -52,7 +52,8 @@
         map.fitLatLngBounds(bounds);
       });
 
-      //Aca falta el recorrido por defecto       
+      //Aca falta el recorrido por defecto
+             
 
         $("#ruta").click(function(){
                 

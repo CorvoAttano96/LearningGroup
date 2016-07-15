@@ -53,8 +53,9 @@
         map.fitLatLngBounds(bounds);
       });
 
-      //Aca falta el recorrido por defecto       
+      //Aca falta el recorrido por defecto
 
+      //Con esto creo la ruta
         $("#ruta").click(function(){
                 var bounds = [];
                 map.addListener('click', function(e){
