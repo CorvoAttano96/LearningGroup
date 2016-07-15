@@ -2,17 +2,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/GuiArtec/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/GuiArtec/static/css/sendero.css">
   <link rel="stylesheet" href="/GuiArtec/static/css/footer.css">
-  <link rel="stylesheet" href="/GuiArtec/static/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/GuiArtec/static/css/sharing.css">
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'>
    <!-- Aca esta la papona con esto realizo la dinamica de mi navbar-->  
   <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> 
   <script src="/GuiArtec/static/js/bootstrap.min.js" type="text/javascript"></script>
-  <title>GuiarTec</title>
+  <title>Esculturas</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -51,28 +51,16 @@
     </div>
   </div>
 </nav>  
-  <div class="text-center animated fadeIn container-sendero">
+  <div class="text-center container-sendero">
       <div class="col-md-6 center-block quitar-float">
-        <p class="animated bounce"><h1 class="monserrat mediano">Sendero de las Esculturas</h1></p>
+        <p><h1 class="monserrat mediano">Sendero de las Esculturas</h1></p>
         <p class="divider"></p>
         <div class="container-fluid chica justificar" id="conten-contenido">         
-            <p class="lato chica animated bounceInRight">Una de las mayores virtudes de <b>Resistencia</b> es que podriamos decir que se trata de un museo al aire libre si tenemos en cuenta la gran cantidad de esculturas,monumentos y murales que se encuentran en sus calles. Estatuas de bronce, piedras y quebracho coronan al centro de la ciudad y por esa razon es conocida como la <b>"Capital de las Esculturas" o "Museo del Aire libre".</b></p>
-            <p class="lato chica animated bounceInLeft">Existe en <b>Resistencia</b> un circuito que reúne <b>151 obras</b> de arte a través de una línea marcada en rojo, que se exhiben en las calles, plazas y avenidas. Está compuesto por tres tramos: <b>Azul o central</b>, que comprende casi en su totalidad la plaza 25 de Mayo y se inicia en la Casa de las Culturas (Marcelo T. de Alvear 84).</p>        
+            <p class="lato chica">Una de las mayores virtudes de <b>Resistencia</b> es que podriamos decir que se trata de un museo al aire libre si tenemos en cuenta la gran cantidad de esculturas,monumentos y murales que se encuentran en sus calles. Estatuas de bronce, piedras y quebracho coronan al centro de la ciudad y por esa razon es conocida como la <b>"Capital de las Esculturas" o "Museo del Aire libre".</b></p>
+            <p class="lato chica">Existe en <b>Resistencia</b> un circuito que reúne <b>151 obras</b> de arte a través de una línea marcada en rojo, que se exhiben en las calles, plazas y avenidas. Está compuesto por tres tramos: <b>Azul o central</b>, que comprende casi en su totalidad la plaza 25 de Mayo y se inicia en la Casa de las Culturas (Marcelo T. de Alvear 84).</p>        
         </div>           
     </div>      
-  </div>  
-<!--<div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Crear ruta
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a id = "gps" >Usar posicion actual como origen</a></li>
-      <li><a id="dosPuntos" >Elegir dos puntos </a></li>
-    </ul>
-  </div>-->
-
-
+  </div> 
 
 <!-- Aqui viene el Mapa responsive-->
     <div class="container">
@@ -91,29 +79,35 @@
         </div> 
     </div> 
 
-<div class="container">
+<div class="text-center">
  
-  <div class="button">
-    <button type="button" >
-    <a id="ruta" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" > Elegir punto de inicio para crear ruta</a></button>
-    <button type="button" >
-    <a id="reset" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" > Reiniciar recorrido 1</a></button>
-    <button type="button" >
-    <a id="recorrido2" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" > Recorrido 2</a></button>
-    <a id="recorrido3" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" > Sendero principal de esculturas</a></button>
+  <div class="btn-group">
     
+    <button class="btn-success" type="button"><a id="ruta" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black"> Elegir punto de inicio para crear ruta</a> </button>
+    <button class="btn-warning" type="button"><a id="reset" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black">Reiniciar recorrido 1</a> </button>
+    <button class="btn-success" type="button"> <a id="recorrido2" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black" > Recorrido 2</a> </button>    
+    <button class="btn-success" type="button"><a id="recorrido3" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black" > Sendero principal de esculturas</a> </button>
 
-  </div> 
-      
+  </div>
+<div>   
     
-<!--<footer>
-      <div class="text-center quitar-float">
-        <ul class="no-lista">
-              <li class="col-md-6 inline-block"><img src="/GuiArtec/static/imgs/logoInfo.png" width="300" height="50"></li>
-              <li class="col-md-6 inline-block monserrat" style="margin-right:-20px;font-style:italic"><p class="text-muted"><img src="/GuiArtec/static/imgs/icons/iconoLG.png" width="22" height="40"> LearningGroup® 2016</p></li>
-        </ul>
-      </div>
-</footer>-->
+<br>
+<br>
+<br>
+<br>
+<br>        
+    
+<footer id="botones-para-compartir">  
+  <center>
+    <br>
+    <p class="muted text-center monserrat" style="font-style:italic">Compartí en tus redes Sociales</p>
+      <!--Cada uno de los links de la redes sociales segun corresponda-->  
+       <a href="javascript:void(0);" onclick="window.open(&quot;http://www.facebook.com/sharer.php?u=http://informatorio.pythonanywhere.com/GuiArtec/senderoEsculturas/index&quot;,&quot;gplusshare&quot;,&quot;toolbar=0,status=0,width=548,height=325&quot;);" rel="nofollow" title="Compartir en Facebook"><img alt="compartir en facebook" class="facebooko" height="40" src="/GuiArtec/static/imgs/icons/ico2_Facebook.png" title="compartir en facebook" width="40" /></a>
+      <a href="javascript:void(0);" onclick="window.open(&quot;https://plus.google.com/share?url=http://informatorio.pythonanywhere.com/GuiArtec/senderoEsculturas/index&quot;,&quot;gplusshare&quot;,&quot;toolbar=0,status=0,width=548,height=325&quot;);" rel="nofollow" title="Compartir en Google+"><img alt="compartir en google+" class="googleo" height="40" src="/GuiArtec/static/imgs/icons/ico_Google_Plus2.png" title="compartir en google+" width="40" /></a>
+      <a href="javascript:void(0);" onclick="window.open(&quot;http://twitter.com/home?status=http://informatorio.pythonanywhere.com/GuiArtec/senderoEsculturas/index&quot;,&quot;gplusshare&quot;,&quot;toolbar=0,status=0,width=548,height=325&quot;);" rel="nofollow" title="Compartir en Twitter"><img alt="compartir en twitter" class="twittero" height="40" src="/GuiArtec/static/imgs/icons/ico2_Twitter.png" title="compartir en twitter" width="40" /></a>
+      <a href="javascript:void(0);" onclick="window.open(&quot;https://www.linkedin.com/shareArticle?mini=http://informatorio.pythonanywhere.com/GuiArtec/senderoEsculturas/index&quot;,&quot;gplusshare&quot;,&quot;toolbar=0,status=0,width=548,height=325&quot;);" rel="nofollow" title="Compartir en Google+"><img alt="compartir en likedin" class="likedino" height="40" src="http://4.bp.blogspot.com/-WBa3E0lZI-8/ViFsOraP3DI/AAAAAAAABwg/eWD_6bYykMQ/s1600/linkedin-long.png" title="compartir en likedin" width="40" /></a>
+  </center>
+</footer>
 
 <script src="{{=URL('static','js/senderoEsculturas.js')}}"></script>
   <script src="{{=URL('static','js/resetEsculturas.js')}}"></script>
@@ -121,6 +115,8 @@
    <script src="{{=URL('static','js/recorrido3.js')}}"></script>
 
   {{pass}}
+  <!-- Jquery del Sticky Flotante-->
+<script src="{{=URL('static','js/float-sticky.js')}}"></script>
   
 </body>
 </html>

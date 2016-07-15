@@ -4,7 +4,6 @@ html, body {
     min-height: 100%;
     padding: 0;
     margin: 0;
-
 }
 
 body:after {
@@ -13,7 +12,6 @@ body:after {
     content: "\A";
 }
   
-
 footer {  
     position: absolute;
     width: 100%;
@@ -22,8 +20,7 @@ footer {
     margin-top: -100px; /* height of footer */
 }
 footer {
-    background-color: black;
-    opacity: 0.9;
+    background-color: transparent;
 }
 
 /* Utilizo para toppear el titulo de Busqueda y otros*/
@@ -33,4 +30,31 @@ footer {
 /* Utilizo para toppear titulos Sendero del navbar, sino se pega*/
 .container-sendero{
     margin-top: 50px;
+}
+/*Clase vinculada al Sticky flotante*/
+a.back-to-top {
+    display: none;
+    width: 60px;
+    height: 60px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: #2A334F url("../imgs/icons/up-arrow.png") no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.titulo{
+    font-size: 5em;
+}
+
+.medio{
+    font-size: 1.3em;
+}
+
+.azul{
+    color:#00C4FF;
 }
