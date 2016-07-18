@@ -68,11 +68,12 @@
     <div class="container">
         <div class="row">           
           <div class="col-md-12">
-            <!--Esto es del gmaps-->
-            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+            <!--Esto es del gmaps. Usar esto si el acceso diario a la key de google maps se termina-->
+            <!--<script src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
             <!-- Clave de google maps--> 
             <!--Clave Fer-->
             <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrjUtZarM2q5OueCbjDpIv9Ii9bXWGO3I"type="text/javascript"></script>-->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDlAEmKfk8Y5OxTlFvaJ_PljFwEPkTzZM"type="text/javascript"></script>
             <script src="{{=URL('static','js/gmaps.js')}}"></script>
             <script src="gmaps.core.js"></script>
             <script src="gmaps.geofences.js"></script>
@@ -87,8 +88,8 @@
     
     <button class="btn-success" type="button"><a id="ruta" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black"> Elegir punto de inicio</a> </button>
     <button class="btn-warning" type="button"><a id="reset" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black">Reiniciar recorrido 1</a> </button>
-    <button class="btn-primary" type="button"> <a id="recorrido2" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black" > Recorrido 2</a> </button>    
-    <button class="btn-primary" type="button"><a id="recorrido3" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black" > Sendero Principal</a> </button>
+    <button class="btn-warning" type="button"> <a id="recorrido2" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black" > Recorrido 2</a> </button>    
+    <button class="btn-warning" type="button"><a id="recorrido3" class="waves-effect waves-light btn bottom-btn tooltipped" data-position="bottom" data-delay="50" style="color:black" > Sendero Principal</a> </button>
 
   </div>
 <div>   
