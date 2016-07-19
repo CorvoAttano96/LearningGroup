@@ -8,7 +8,7 @@ a{
 	text-decoration: none;
 }
 html,body{	
-	background: url("../imgs/CountryLeather.jpg") no-repeat center center fixed;
+	background: url("../imgs/CountryLeather-min.jpg") no-repeat center center fixed;
 	/*Ajusta mi background a la webpage*/
 	/*background-repeat:no-repeat;*/	
 	-webkit-background-size: cover;
